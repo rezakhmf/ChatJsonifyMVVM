@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7861D60A9C900553252 /* AppDelegate.swift */; };
+		F510B7891D60A9C900553252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7881D60A9C900553252 /* ViewController.swift */; };
+		F510B78C1D60A9C900553252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78A1D60A9C900553252 /* Main.storyboard */; };
+		F510B78E1D60A9C900553252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F510B78D1D60A9C900553252 /* Assets.xcassets */; };
+		F510B7911D60A9C900553252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78F1D60A9C900553252 /* LaunchScreen.storyboard */; };
+		F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */; };
+		F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F510B7981D60A9C900553252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F510B77B1D60A9C900553252 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F510B7821D60A9C900553252;
+			remoteInfo = HipChatJsonify;
+		};
+		F510B7A31D60A9C900553252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F510B77B1D60A9C900553252 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F510B7821D60A9C900553252;
+			remoteInfo = HipChatJsonify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F510B7831D60A9C900553252 /* HipChatJsonify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HipChatJsonify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F510B7861D60A9C900553252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F510B7881D60A9C900553252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F510B78B1D60A9C900553252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F510B78D1D60A9C900553252 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F510B7901D60A9C900553252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F510B7921D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F510B7971D60A9C900553252 /* HipChatJsonifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HipChatJsonifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyTests.swift; sourceTree = "<group>"; };
+		F510B79D1D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F510B7A21D60A9C900553252 /* HipChatJsonifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HipChatJsonifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyUITests.swift; sourceTree = "<group>"; };
+		F510B7A81D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F510B7801D60A9C900553252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B7941D60A9C900553252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B79F1D60A9C900553252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F510B77A1D60A9C900553252 = {
+			isa = PBXGroup;
+			children = (
+				F510B7851D60A9C900553252 /* HipChatJsonify */,
+				F510B79A1D60A9C900553252 /* HipChatJsonifyTests */,
+				F510B7A51D60A9C900553252 /* HipChatJsonifyUITests */,
+				F510B7841D60A9C900553252 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F510B7841D60A9C900553252 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F510B7831D60A9C900553252 /* HipChatJsonify.app */,
+				F510B7971D60A9C900553252 /* HipChatJsonifyTests.xctest */,
+				F510B7A21D60A9C900553252 /* HipChatJsonifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F510B7851D60A9C900553252 /* HipChatJsonify */ = {
+			isa = PBXGroup;
+			children = (
+				F510B7861D60A9C900553252 /* AppDelegate.swift */,
+				F510B7881D60A9C900553252 /* ViewController.swift */,
+				F510B78A1D60A9C900553252 /* Main.storyboard */,
+				F510B78D1D60A9C900553252 /* Assets.xcassets */,
+				F510B78F1D60A9C900553252 /* LaunchScreen.storyboard */,
+				F510B7921D60A9C900553252 /* Info.plist */,
+			);
+			path = HipChatJsonify;
+			sourceTree = "<group>";
+		};
+		F510B79A1D60A9C900553252 /* HipChatJsonifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */,
+				F510B79D1D60A9C900553252 /* Info.plist */,
+			);
+			path = HipChatJsonifyTests;
+			sourceTree = "<group>";
+		};
+		F510B7A51D60A9C900553252 /* HipChatJsonifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */,
+				F510B7A81D60A9C900553252 /* Info.plist */,
+			);
+			path = HipChatJsonifyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F510B7821D60A9C900553252 /* HipChatJsonify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F510B7AB1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonify" */;
+			buildPhases = (
+				F510B77F1D60A9C900553252 /* Sources */,
+				F510B7801D60A9C900553252 /* Frameworks */,
+				F510B7811D60A9C900553252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HipChatJsonify;
+			productName = HipChatJsonify;
+			productReference = F510B7831D60A9C900553252 /* HipChatJsonify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F510B7961D60A9C900553252 /* HipChatJsonifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F510B7AE1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyTests" */;
+			buildPhases = (
+				F510B7931D60A9C900553252 /* Sources */,
+				F510B7941D60A9C900553252 /* Frameworks */,
+				F510B7951D60A9C900553252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F510B7991D60A9C900553252 /* PBXTargetDependency */,
+			);
+			name = HipChatJsonifyTests;
+			productName = HipChatJsonifyTests;
+			productReference = F510B7971D60A9C900553252 /* HipChatJsonifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F510B7A11D60A9C900553252 /* HipChatJsonifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F510B7B11D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyUITests" */;
+			buildPhases = (
+				F510B79E1D60A9C900553252 /* Sources */,
+				F510B79F1D60A9C900553252 /* Frameworks */,
+				F510B7A01D60A9C900553252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F510B7A41D60A9C900553252 /* PBXTargetDependency */,
+			);
+			name = HipChatJsonifyUITests;
+			productName = HipChatJsonifyUITests;
+			productReference = F510B7A21D60A9C900553252 /* HipChatJsonifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F510B77B1D60A9C900553252 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Reza Farahani";
+				TargetAttributes = {
+					F510B7821D60A9C900553252 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = W4HVNQTX75;
+					};
+					F510B7961D60A9C900553252 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = W4HVNQTX75;
+						TestTargetID = F510B7821D60A9C900553252;
+					};
+					F510B7A11D60A9C900553252 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = W4HVNQTX75;
+						TestTargetID = F510B7821D60A9C900553252;
+					};
+				};
+			};
+			buildConfigurationList = F510B77E1D60A9C900553252 /* Build configuration list for PBXProject "HipChatJsonify" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F510B77A1D60A9C900553252;
+			productRefGroup = F510B7841D60A9C900553252 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F510B7821D60A9C900553252 /* HipChatJsonify */,
+				F510B7961D60A9C900553252 /* HipChatJsonifyTests */,
+				F510B7A11D60A9C900553252 /* HipChatJsonifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F510B7811D60A9C900553252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F510B7911D60A9C900553252 /* LaunchScreen.storyboard in Resources */,
+				F510B78E1D60A9C900553252 /* Assets.xcassets in Resources */,
+				F510B78C1D60A9C900553252 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B7951D60A9C900553252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B7A01D60A9C900553252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F510B77F1D60A9C900553252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F510B7891D60A9C900553252 /* ViewController.swift in Sources */,
+				F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B7931D60A9C900553252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F510B79E1D60A9C900553252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F510B7991D60A9C900553252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F510B7821D60A9C900553252 /* HipChatJsonify */;
+			targetProxy = F510B7981D60A9C900553252 /* PBXContainerItemProxy */;
+		};
+		F510B7A41D60A9C900553252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F510B7821D60A9C900553252 /* HipChatJsonify */;
+			targetProxy = F510B7A31D60A9C900553252 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F510B78A1D60A9C900553252 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F510B78B1D60A9C900553252 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F510B78F1D60A9C900553252 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F510B7901D60A9C900553252 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F510B7A91D60A9C900553252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F510B7AA1D60A9C900553252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F510B7AC1D60A9C900553252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HipChatJsonify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F510B7AD1D60A9C900553252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HipChatJsonify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F510B7AF1D60A9C900553252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HipChatJsonifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HipChatJsonify.app/HipChatJsonify";
+			};
+			name = Debug;
+		};
+		F510B7B01D60A9C900553252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HipChatJsonifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HipChatJsonify.app/HipChatJsonify";
+			};
+			name = Release;
+		};
+		F510B7B21D60A9C900553252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HipChatJsonifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HipChatJsonify;
+			};
+			name = Debug;
+		};
+		F510B7B31D60A9C900553252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HipChatJsonifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HipChatJsonify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F510B77E1D60A9C900553252 /* Build configuration list for PBXProject "HipChatJsonify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F510B7A91D60A9C900553252 /* Debug */,
+				F510B7AA1D60A9C900553252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F510B7AB1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F510B7AC1D60A9C900553252 /* Debug */,
+				F510B7AD1D60A9C900553252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F510B7AE1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F510B7AF1D60A9C900553252 /* Debug */,
+				F510B7B01D60A9C900553252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F510B7B11D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F510B7B21D60A9C900553252 /* Debug */,
+				F510B7B31D60A9C900553252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F510B77B1D60A9C900553252 /* Project object */;
+}

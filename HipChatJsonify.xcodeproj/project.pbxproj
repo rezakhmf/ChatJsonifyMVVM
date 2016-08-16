@@ -121,6 +121,11 @@
 		F510B7851D60A9C900553252 /* HipChatJsonify */ = {
 			isa = PBXGroup;
 			children = (
+				5707295F1D62A78A00920787 /* Helpers */,
+				5707295E1D62A78000920787 /* Stores */,
+				5707295D1D62A77300920787 /* Controllers */,
+				5707295C1D62A75300920787 /* Views */,
+				5707295B1D62A74800920787 /* Models */,
 				F510B7861D60A9C900553252 /* AppDelegate.swift */,
 				F510B7881D60A9C900553252 /* ViewController.swift */,
 				F510B78A1D60A9C900553252 /* Main.storyboard */,
@@ -221,6 +226,7 @@
 					F510B7821D60A9C900553252 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = W4HVNQTX75;
+						LastSwiftMigration = 0800;
 					};
 					F510B7961D60A9C900553252 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -478,10 +484,13 @@
 			baseConfigurationReference = 24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HipChatJsonify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -490,10 +499,12 @@
 			baseConfigurationReference = 7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HipChatJsonify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = reza.farahani.HipChatJsonify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

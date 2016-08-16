@@ -15,6 +15,7 @@
 		F510B7911D60A9C900553252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78F1D60A9C900553252 /* LaunchScreen.storyboard */; };
 		F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */; };
 		F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */; };
+		F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F510B7A21D60A9C900553252 /* HipChatJsonifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HipChatJsonifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyUITests.swift; sourceTree = "<group>"; };
 		F510B7A81D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgSpecialContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +123,10 @@
 		F510B7851D60A9C900553252 /* HipChatJsonify */ = {
 			isa = PBXGroup;
 			children = (
-				5707295F1D62A78A00920787 /* Helpers */,
-				5707295E1D62A78000920787 /* Stores */,
-				5707295D1D62A77300920787 /* Controllers */,
-				5707295C1D62A75300920787 /* Views */,
-				5707295B1D62A74800920787 /* Models */,
+				F567EFA91D633CF000CD87D2 /* Controllers */,
+				F567EFAA1D633CF000CD87D2 /* Helpers */,
+				F567EFAB1D633CF000CD87D2 /* Models */,
+				F567EFA81D633C1100CD87D2 /* Stores */,
 				F510B7861D60A9C900553252 /* AppDelegate.swift */,
 				F510B7881D60A9C900553252 /* ViewController.swift */,
 				F510B78A1D60A9C900553252 /* Main.storyboard */,
@@ -152,6 +153,35 @@
 				F510B7A81D60A9C900553252 /* Info.plist */,
 			);
 			path = HipChatJsonifyUITests;
+			sourceTree = "<group>";
+		};
+		F567EFA81D633C1100CD87D2 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		F567EFA91D633CF000CD87D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F567EFAA1D633CF000CD87D2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F567EFAB1D633CF000CD87D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */,
 				F510B7891D60A9C900553252 /* ViewController.swift in Sources */,
 				F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */,
 			);

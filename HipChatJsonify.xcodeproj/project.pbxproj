@@ -16,6 +16,8 @@
 		F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */; };
 		F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */; };
 		F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */; };
+		F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAE1D6346AC00CD87D2 /* hjk.cpp */; };
+		F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFB11D6346D700CD87D2 /* ghjkl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyUITests.swift; sourceTree = "<group>"; };
 		F510B7A81D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgSpecialContent.swift; sourceTree = "<group>"; };
+		F567EFAE1D6346AC00CD87D2 /* hjk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hjk.cpp; sourceTree = "<group>"; };
+		F567EFAF1D6346AC00CD87D2 /* hjk.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hjk.hpp; path = ../Stores/hjk.hpp; sourceTree = "<group>"; };
+		F567EFB11D6346D700CD87D2 /* ghjkl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ghjkl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +163,7 @@
 		F567EFA81D633C1100CD87D2 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				F567EFAE1D6346AC00CD87D2 /* hjk.cpp */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 		F567EFA91D633CF000CD87D2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F567EFB11D6346D700CD87D2 /* ghjkl.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 		F567EFAA1D633CF000CD87D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F567EFAF1D6346AC00CD87D2 /* hjk.hpp */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -371,7 +379,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */,
+				F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */,
 				F510B7891D60A9C900553252 /* ViewController.swift in Sources */,
+				F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */,
 				F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

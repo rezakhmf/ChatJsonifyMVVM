@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		545F72D4D056AE7A81B7F919 /* Pods_HipChatJsonify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */; };
 		F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7861D60A9C900553252 /* AppDelegate.swift */; };
 		F510B7891D60A9C900553252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7881D60A9C900553252 /* ViewController.swift */; };
 		F510B78C1D60A9C900553252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78A1D60A9C900553252 /* Main.storyboard */; };
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.debug.xcconfig"; sourceTree = "<group>"; };
+		2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HipChatJsonify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.release.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.release.xcconfig"; sourceTree = "<group>"; };
 		F510B7831D60A9C900553252 /* HipChatJsonify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HipChatJsonify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510B7861D60A9C900553252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F510B7881D60A9C900553252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545F72D4D056AE7A81B7F919 /* Pods_HipChatJsonify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		734D4A56CA1DF9EBFD4DCB9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */,
+				7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D55A8404EE4C294DAD23E80D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F510B77A1D60A9C900553252 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				F510B79A1D60A9C900553252 /* HipChatJsonifyTests */,
 				F510B7A51D60A9C900553252 /* HipChatJsonifyUITests */,
 				F510B7841D60A9C900553252 /* Products */,
+				734D4A56CA1DF9EBFD4DCB9B /* Pods */,
+				D55A8404EE4C294DAD23E80D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F510B7AB1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonify" */;
 			buildPhases = (
+				FABA6A9FD1D8873ECEC60860 /* [CP] Check Pods Manifest.lock */,
 				F510B77F1D60A9C900553252 /* Sources */,
 				F510B7801D60A9C900553252 /* Frameworks */,
 				F510B7811D60A9C900553252 /* Resources */,
+				C294EF95D88A9C757F8A0BCD /* [CP] Embed Pods Frameworks */,
+				9E2F1787A4FEA99FAF8BB487 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E2F1787A4FEA99FAF8BB487 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C294EF95D88A9C757F8A0BCD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FABA6A9FD1D8873ECEC60860 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F510B77F1D60A9C900553252 /* Sources */ = {
@@ -400,6 +475,7 @@
 		};
 		F510B7AC1D60A9C900553252 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HipChatJsonify/Info.plist;
@@ -411,6 +487,7 @@
 		};
 		F510B7AD1D60A9C900553252 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HipChatJsonify/Info.plist;
@@ -485,6 +562,7 @@
 				F510B7AD1D60A9C900553252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F510B7AE1D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +571,7 @@
 				F510B7B01D60A9C900553252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F510B7B11D60A9C900553252 /* Build configuration list for PBXNativeTarget "HipChatJsonifyUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +580,7 @@
 				F510B7B31D60A9C900553252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

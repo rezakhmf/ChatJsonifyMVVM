@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5707294E1D62A40000920787 /* Stores in Resources */ = {isa = PBXBuildFile; fileRef = 5707294D1D62A40000920787 /* Stores */; };
-		570729501D62A46600920787 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 5707294F1D62A46600920787 /* Views */; };
-		570729521D62A4B900920787 /* Modesl in Resources */ = {isa = PBXBuildFile; fileRef = 570729511D62A4B900920787 /* Modesl */; };
-		570729541D62A4CB00920787 /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 570729531D62A4CB00920787 /* Controllers */; };
-		5707295A1D62A53E00920787 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = 570729591D62A53E00920787 /* Helpers */; };
 		F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7861D60A9C900553252 /* AppDelegate.swift */; };
 		F510B7891D60A9C900553252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7881D60A9C900553252 /* ViewController.swift */; };
 		F510B78C1D60A9C900553252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78A1D60A9C900553252 /* Main.storyboard */; };
@@ -39,11 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5707294D1D62A40000920787 /* Stores */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stores; sourceTree = "<group>"; };
-		5707294F1D62A46600920787 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		570729511D62A4B900920787 /* Modesl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Modesl; sourceTree = "<group>"; };
-		570729531D62A4CB00920787 /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
-		570729591D62A53E00920787 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		F510B7831D60A9C900553252 /* HipChatJsonify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HipChatJsonify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510B7861D60A9C900553252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F510B7881D60A9C900553252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +74,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5707295B1D62A74800920787 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5707295C1D62A75300920787 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5707295D1D62A77300920787 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5707295E1D62A78000920787 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
+		5707295F1D62A78A00920787 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		F510B77A1D60A9C900553252 = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +132,11 @@
 		F510B7851D60A9C900553252 /* HipChatJsonify */ = {
 			isa = PBXGroup;
 			children = (
-				570729591D62A53E00920787 /* Helpers */,
-				570729531D62A4CB00920787 /* Controllers */,
-				570729511D62A4B900920787 /* Modesl */,
-				5707294F1D62A46600920787 /* Views */,
-				5707294D1D62A40000920787 /* Stores */,
+				5707295F1D62A78A00920787 /* Helpers */,
+				5707295E1D62A78000920787 /* Stores */,
+				5707295D1D62A77300920787 /* Controllers */,
+				5707295C1D62A75300920787 /* Views */,
+				5707295B1D62A74800920787 /* Models */,
 				F510B7861D60A9C900553252 /* AppDelegate.swift */,
 				F510B7881D60A9C900553252 /* ViewController.swift */,
 				F510B78A1D60A9C900553252 /* Main.storyboard */,
@@ -250,12 +275,7 @@
 			files = (
 				F510B7911D60A9C900553252 /* LaunchScreen.storyboard in Resources */,
 				F510B78E1D60A9C900553252 /* Assets.xcassets in Resources */,
-				5707295A1D62A53E00920787 /* Helpers in Resources */,
-				570729521D62A4B900920787 /* Modesl in Resources */,
-				5707294E1D62A40000920787 /* Stores in Resources */,
 				F510B78C1D60A9C900553252 /* Main.storyboard in Resources */,
-				570729541D62A4CB00920787 /* Controllers in Resources */,
-				570729501D62A46600920787 /* Views in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

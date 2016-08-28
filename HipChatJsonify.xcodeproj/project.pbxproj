@@ -15,10 +15,10 @@
 		F510B7911D60A9C900553252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F510B78F1D60A9C900553252 /* LaunchScreen.storyboard */; };
 		F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */; };
 		F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */; };
+		F520FAA71D72B63B006EBCDC /* MsgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520FAA61D72B63B006EBCDC /* MsgParser.swift */; };
 		F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */; };
 		F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAE1D6346AC00CD87D2 /* hjk.cpp */; };
 		F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFB11D6346D700CD87D2 /* ghjkl.swift */; };
-		F567EFB41D63474B00CD87D2 /* kiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFB31D63474B00CD87D2 /* kiki.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +55,11 @@
 		F510B7A21D60A9C900553252 /* HipChatJsonifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HipChatJsonifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyUITests.swift; sourceTree = "<group>"; };
 		F510B7A81D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F520FAA61D72B63B006EBCDC /* MsgParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgParser.swift; sourceTree = "<group>"; };
 		F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgSpecialContent.swift; sourceTree = "<group>"; };
 		F567EFAE1D6346AC00CD87D2 /* hjk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hjk.cpp; sourceTree = "<group>"; };
 		F567EFAF1D6346AC00CD87D2 /* hjk.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hjk.hpp; sourceTree = "<group>"; };
 		F567EFB11D6346D700CD87D2 /* ghjkl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ghjkl.swift; sourceTree = "<group>"; };
-		F567EFB31D63474B00CD87D2 /* kiki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kiki.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,7 @@
 		F567EFAA1D633CF000CD87D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F567EFB31D63474B00CD87D2 /* kiki.swift */,
+				F520FAA61D72B63B006EBCDC /* MsgParser.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -381,12 +381,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F520FAA71D72B63B006EBCDC /* MsgParser.swift in Sources */,
 				F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */,
 				F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */,
 				F510B7891D60A9C900553252 /* ViewController.swift in Sources */,
 				F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */,
 				F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */,
-				F567EFB41D63474B00CD87D2 /* kiki.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

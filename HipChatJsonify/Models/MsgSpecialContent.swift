@@ -10,34 +10,18 @@ import Foundation
 
 class MsgSpecialContent {
     
-    var _links:[String] {
     
-        get {
-            return _links;
-        }
-        set(newValue) {
-            self._links = newValue;
-        }
+    var mentions = [String]();
+    var emoticons = [String]();
+    var links = [String]();
     
-    };
-    
-    var _mentions:[String] {
-        get {
-            return _emoticons;
-        }
-        set(newValue) {
-            self._emoticons = newValue;
-        }
-    };
-    
-    var _emoticons:[String] {
-        get {
-            return _emoticons;
-        }
-        set(newValue) {
-            self._emoticons = newValue;
-        }
-    };
+    init(mentions:[String], emoticons:[String],links:[String]) {
+        
+        self.mentions = mentions;
+        self.emoticons = emoticons;
+        self.links = links;
+        
+    }
     
     
 }

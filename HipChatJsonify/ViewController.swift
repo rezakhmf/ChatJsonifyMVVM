@@ -20,6 +20,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func test(sender: AnyObject) {
+        
+        let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
+        
+        configuration.TLSMinimumSupportedProtocol = SSLProtocol.TLSProtocol1;
+        
+        let url = NSURL.init(string: "http://stackoverflow.com");
+        
+        let request = NSURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 0);
+        
+        let session = NSURLSession(configuration: configuration);
+        
+        let task = session.dataTaskWithRequest(<#T##request: NSURLRequest##NSURLRequest#>, completionHandler: <#T##(NSData?, NSURLResponse?, NSError?) -> Void#>)(request) {data, response, error in
+            if (error != nil){ print(error);}
+            print(response);
+            //print(data);
+            print("task is completed");
+        };
+        
+        task.resume();
+    }
 
 }
 

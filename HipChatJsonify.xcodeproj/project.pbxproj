@@ -41,6 +41,7 @@
 /* Begin PBXFileReference section */
 		24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.debug.xcconfig"; sourceTree = "<group>"; };
 		2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HipChatJsonify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		574641841D768E90003976EE /* Validation.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Validation.playground; sourceTree = "<group>"; };
 		7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.release.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.release.xcconfig"; sourceTree = "<group>"; };
 		F510B7831D60A9C900553252 /* HipChatJsonify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HipChatJsonify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F510B7861D60A9C900553252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				F520FAA61D72B63B006EBCDC /* MsgParser.swift */,
+				574641841D768E90003976EE /* Validation.playground */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

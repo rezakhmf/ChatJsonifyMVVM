@@ -37,16 +37,9 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
                     print( "Reponse Error: \( responseError )" )
                 } else {
                     do {
-                        let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) ;//as? [String:AnyObject];
-                        
-                       // let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray;
-                        
-                        /*for (index, object) in dictionary! {
-                            let name = object["id"]!!.stringValue
-                            print(name)
-                        }*/
-
-                        //self.delegate?.didRecieveResponse?(dictionary);
+                        //let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [[String:AnyObject]];
+                        let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String:AnyObject];
+                        self.delegate?.didRecieveResponse?(dictionary!);
                         
                         print( "Response: \( dictionary )" )
                         

@@ -18,6 +18,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         manager.delegate = self;
         manager.getWeatherInfo();
         print("loaded");
+        //(@.[^\s]+)
     }
     
      func didFailToReceiveResponse() {

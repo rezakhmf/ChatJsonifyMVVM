@@ -32,10 +32,13 @@ class ViewController: UIViewController {
         
         let session = NSURLSession(configuration: configuration);
         
-        let task = session.dataTaskWithRequest(<#T##request: NSURLRequest##NSURLRequest#>, completionHandler: <#T##(NSData?, NSURLResponse?, NSError?) -> Void#>)(request) {data, response, error in
-            if (error != nil){ print(error);}
-            print(response);
-            //print(data);
+        let task = session.dataTaskWithRequest(request) {data, response, error in
+            if (error != nil){
+                print(error);
+                return;}
+            let httpResponse = response as! NSHTTPURLResponse
+            let statusCode = httpResponse.URL
+            print(statusCode)
             print("task is completed");
         };
         

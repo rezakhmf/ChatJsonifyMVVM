@@ -24,11 +24,23 @@ let request = NSURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemote
 
 let session = NSURLSession(configuration: configuration);
 
-let task = session.dataTaskWithRequest(request) {data, response, error in
+    let task = session.dataTaskWithRequest(request) { (data, response, error) in
     if (error != nil){ print(error);}
     print(response);
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.URL
+    print(statusCode!);
     //print(data);
     print("task is completed");
+  
+        do{
+            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments);
+            print(json);
+            
+        }catch{
+        }
+
+
 };
 
 task.resume();

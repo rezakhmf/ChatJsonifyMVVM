@@ -45,17 +45,4 @@ let session = NSURLSession(configuration: configuration);
 
 task.resume();
 
-let url1 = NSURL(string: "http://stackoverflow.com")
-let request1 = NSURLRequest(URL: url1!)
-
-/*NSURLConnection.sendAsynchronousRequest(request1, queue: NSOperationQueue.currentQueue()!) { response, maybeData, error in
-    if let data = maybeData {
-        let contents = NSString(data:data, encoding:NSUTF8StringEncoding)
-        print(contents);
-    } else {
-        print(error!.localizedDescription)
-    }
-}
- */
-
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

@@ -19,7 +19,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         manager.getWeatherInfo();
         print("loaded");
         //(@.[^\s]+) find mentioned
-        //{(.*)} find emiticons
+        //{(.[^\s]+)} find emiticons
     }
     
      func didFailToReceiveResponse() {

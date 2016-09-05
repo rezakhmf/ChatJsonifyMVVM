@@ -52,6 +52,10 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
         });
         dataTask.resume();
         }
+    
+    func restTemplate(httpMethod:String, request: NSMutableURLRequest) {
+        
+    }
 
 
 }

@@ -10,14 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, NetworkManagerDelegate{
 
+    @IBOutlet weak var inputMsg: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+       
+        //print("loaded");
+        
         let manager  = NetworkManager();
         manager.delegate = self;
-        manager.getLinkInfo();
+        manager.getURLContent("http://stackoverflow.com");
         print("loaded");
+
+        
         //(@.[^\s]+) find mentioned
         //{(.[^\s]+)} find emiticons
         //(\<title>.*?\<\/title>) title tag
@@ -26,29 +34,37 @@ class ViewController: UIViewController, NetworkManagerDelegate{
      func didFailToReceiveResponse() {
         print("nothing got back");
     }
-    //func didRecieveResponse(info: [Dictionary<String,AnyObject>]) { for situaiton that returns back json array
-    func didRecieveResponse(info: Dictionary<String,AnyObject>) {
-        //let name = info["name"];
-       // print("name: \(info)");
-        
-       // print(info.startIndex.advancedBy(1));
-        print(info)
-       // let theKey = info.endIndex;
-        //print(info);
-        
-        //let main = info["main"];
-        //print("humidity: \(main!["humidity"])");
-        
+    
+    func didRecievePageTitle(URL: String, title: String){
+        print("called");
+        var pageInfo = [String:String]();
+        pageInfo[URL] = title;
+        print(pageInfo);
     }
 
     @IBAction func test(sender: AnyObject) {
         
+        let matchFinder = MatchFinder();
+        
+        let msg = self.inputMsg.text!;
+        
+        var links = matchFinder.linkMatches(input: msg);
+        
+        GCDispatch.async(){
+            
+            let manager  = NetworkManager();
+            manager.delegate = self;
+            links.map{manager.getURLContent($0)};
+
+        }
+        
+        
+        let mentionsEmoticonsPattern = "(@.[^\\s]+)|\\((.*?)\\)";
+        
+        let mentiondsEmoticons = matchFinder.matchesInText(input: msg, regexPattern: mentionsEmoticonsPattern);
+        print(mentiondsEmoticons);
+        //let msgSpecialContent = MsgSpecialContent();
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

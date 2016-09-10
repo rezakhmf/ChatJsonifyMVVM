@@ -88,8 +88,8 @@ func matchesForRegexInText(regex: String, text: String) -> [String] {
     }
 }
 
-let emitcons = "reza @ali mohamad @amir maman {baba} baghie {elahe}";
-let emitconMatches = matchesForRegexInText("(@.[^\\s]+)|(\\{.*?\\})" , text: emitcons);
+let emitcons = "reza @ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
+let emitconMatches = matchesForRegexInText("(@.[^\\s]+)|\\((.*?)\\)" , text: emitcons);
 print(emitconMatches);
 
 

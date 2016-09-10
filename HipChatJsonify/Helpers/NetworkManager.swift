@@ -8,9 +8,9 @@
 
 import UIKit
 
-@objc protocol NetworkManagerDelegate{
-    optional func didFailToReceiveResponse();
-    optional func didRecievePageTitle(URL URL: String, title: String);
+protocol NetworkManagerDelegate{
+     func didFailToReceiveResponse();
+     func didRecievePageTitle(URL URL: String, title: String);
 }
 
 class NetworkManager: NSObject, NSURLSessionDelegate {
@@ -38,17 +38,16 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
         
         let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData? ,response: NSURLResponse? ,error: NSError?) in
             
-            print("block");
+        
             if let responseError = error {
-                self.delegate?.didFailToReceiveResponse?()
+                self.delegate!.didFailToReceiveResponse()
                 print( "Reponse Error: \( responseError )" )
             } else {
                 let pageContent = String(NSString(data: data!, encoding: NSUTF8StringEncoding));
                 
                 let matchFinder = MatchFinder();
                 let pageTitle = matchFinder.matchesInText(input: pageContent, regexPattern: "\\<title>.*?\\<\\/title>");
-                print(pageTitle[0]);
-                self.delegate?.didRecievePageTitle?(URL: url, title: pageTitle[0]);
+                self.delegate!.didRecievePageTitle(URL: url, title: pageTitle[0]);
             }
         });
         

@@ -12,31 +12,18 @@ class ViewController: UIViewController, NetworkManagerDelegate{
 
     @IBOutlet weak var inputMsg: UITextField!
     
+    let manager  = NetworkManager();
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-       
-        //print("loaded");
-        
-        let manager  = NetworkManager();
         manager.delegate = self;
-        manager.getURLContent("http://stackoverflow.com");
-        print("loaded");
-
-        
-        //(@.[^\s]+) find mentioned
-        //{(.[^\s]+)} find emiticons
-        //(\<title>.*?\<\/title>) title tag
     }
     
      func didFailToReceiveResponse() {
         print("nothing got back");
     }
     
-    func didRecievePageTitle(URL: String, title: String){
-        print("called");
+    func didRecievePageTitle(URL URL: String, title: String){
         var pageInfo = [String:String]();
         pageInfo[URL] = title;
         print(pageInfo);
@@ -49,16 +36,11 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         let msg = self.inputMsg.text!;
         
         var links = matchFinder.linkMatches(input: msg);
-        
         GCDispatch.async(){
-            
-            let manager  = NetworkManager();
-            manager.delegate = self;
-            links.map{manager.getURLContent($0)};
-
+            links.map{self.manager.getURLContent($0)};
         }
         
-        
+        //hala inja biam dige begam ke ba map har chie pass bedam be model class marboote
         let mentionsEmoticonsPattern = "(@.[^\\s]+)|\\((.*?)\\)";
         
         let mentiondsEmoticons = matchFinder.matchesInText(input: msg, regexPattern: mentionsEmoticonsPattern);

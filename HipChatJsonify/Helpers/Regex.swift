@@ -8,8 +8,10 @@
 
 import Foundation
 
-class Regex {
 
+class Regex {
+    
+    // MARK: – Helper classer to get matches based on regex pattern
     
     func matchesForRegexInText(regex: String, input: String) -> [String] {
         
@@ -25,6 +27,21 @@ class Regex {
         }
     }
     
+    // MARK: – Helper classer to get links on an input string
+        //this method is used as cover all types of links e.g. ftp, https and so on.
+    
+    func linkMatches(input: String) -> [String] {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
+            let matches = detector.matchesInString(input, options: [], range: NSRange(location:0, length: input.utf8.count));
+            let NSInput = input as NSString;
+            return matches.map{NSInput.substringWithRange($0.range)};
+        } catch let error as NSError {
+            print("no link(s) found: \(error.localizedDescription)");
+            return [];
+        }
+        
+    }
 }
 
 

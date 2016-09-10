@@ -16,16 +16,18 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         let manager  = NetworkManager();
         manager.delegate = self;
-        manager.getWeatherInfo();
+        manager.getLinkInfo();
         print("loaded");
         //(@.[^\s]+) find mentioned
         //{(.[^\s]+)} find emiticons
+        //(\<title>.*?\<\/title>) title tag
     }
     
      func didFailToReceiveResponse() {
         print("nothing got back");
     }
-     func didRecieveResponse(info: Dictionary<String,AnyObject>) {
+    //func didRecieveResponse(info: [Dictionary<String,AnyObject>]) { for situaiton that returns back json array
+    func didRecieveResponse(info: Dictionary<String,AnyObject>) {
         //let name = info["name"];
        // print("name: \(info)");
         
@@ -41,27 +43,6 @@ class ViewController: UIViewController, NetworkManagerDelegate{
 
     @IBAction func test(sender: AnyObject) {
         
-        let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
-        
-        configuration.TLSMinimumSupportedProtocol = SSLProtocol.TLSProtocol1;
-        
-        let url = NSURL.init(string: "http://stackoverflow.com");
-        
-        let request = NSURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 0);
-        
-        let session = NSURLSession(configuration: configuration);
-        
-        let task = session.dataTaskWithRequest(request) {data, response, error in
-            if (error != nil){
-                print(error);
-                return;}
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.URL
-            print(statusCode)
-            print("task is completed");
-        };
-        
-        task.resume();
     }
     
     override func didReceiveMemoryWarning() {

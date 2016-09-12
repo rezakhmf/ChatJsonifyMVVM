@@ -173,4 +173,7 @@ do {
     NSLog("\(err.localizedDescription)")
 }
 
+let myDictionary: [String:[AnyObject]] = ["Hello": [1, 2, 3], "World": [4, 5, 6]];
+print(myDictionary);
+
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

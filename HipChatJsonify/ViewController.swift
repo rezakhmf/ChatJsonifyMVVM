@@ -26,21 +26,15 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     func didRecievePageTitle(URL URL: String, title: String){
     
-        var linkInfo = [String:String]()
+        var links = [Dictionary<String, String>]();
+        var linkInfo = Dictionary<String, String>();
         linkInfo["url"] = URL;
         linkInfo["title"] = title;
+        links.append(linkInfo);
         
-        let link = Links(dictionary: linkInfo);
-        
-      //  self.inputMsgDictify["links"] = link;
-        print(inputMsgDictify);
-        
-        
+        self.inputMsgDictify["links"] = links;
         
         let userMsg = UserMsg(dictionary: self.inputMsgDictify);
-        print(userMsg);
-        
-        //self.inputMsg.text = "";
     }
 
     @IBAction func test(sender: AnyObject) {
@@ -57,31 +51,9 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
         let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
-        
-        print(mentions);
-        print(emoticons);
-        
+    
         self.inputMsgDictify["mentions"] = mentions;
         self.inputMsgDictify["emoticons"] = emoticons;
-
-        //var pp = self.inputMsgDictify["mentions"];
-       // print(pp![0]);
-        
-      /*  for item in mentions
-        {
-                self.inputMsgDictify.setValue(item, forKey: "mentions");
-        }
-
-        for item in emoticons
-        {
-            self.inputMsgDictify.setValue(item, forKey: "emoticons");
-        }*/
-        print("rezaaaaaaaa");
-        print(self.inputMsgDictify)
-        
-        //self.inputMsgDictify["mentions"] = mentions;
-   //     self.inputMsgDictify.setObject((mentions as? NSArray)!, forKey: "mentions");
-     //   self.inputMsgDictify["emoticons"] = emoticons;
     }
     
 }

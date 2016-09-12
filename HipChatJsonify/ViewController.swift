@@ -13,7 +13,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     @IBOutlet weak var inputMsg: UITextField!
     
     let manager  = NetworkManager();
-    var inputMsgDictify = NSMutableDictionary();
+    var inputMsgDictify = NSMutableDictionary()//NSMutableDictionary();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +32,15 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         let link = Links(dictionary: linkInfo);
         
-        self.inputMsgDictify.setValue(link, forKey: "links")
+        self.inputMsgDictify["links"] = link;
+        print(inputMsgDictify);
+        
+        
         
         let userMsg = UserMsg(dictionary: self.inputMsgDictify);
+        print(userMsg);
         
-        self.inputMsg.text = "";
+        //self.inputMsg.text = "";
     }
 
     @IBAction func test(sender: AnyObject) {
@@ -57,9 +61,20 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         print(mentions);
         print(emoticons);
         
+        for item in mentions
+        {
+                self.inputMsgDictify.setValue(item, forKey: "mentions");
+        }
 
-        self.inputMsgDictify.setValue(mentions, forKey: "mentions");
-        self.inputMsgDictify.setValue(emoticons, forKey: "emoticons");
+        for item in emoticons
+        {
+            self.inputMsgDictify.setValue(item, forKey: "emoticons");
+        }
+        print("rezaaaaaaaa");
+        print(self.inputMsgDictify["mentions"])
+        //self.inputMsgDictify["mentions"] = mentions;
+   //     self.inputMsgDictify.setObject((mentions as? NSArray)!, forKey: "mentions");
+     //   self.inputMsgDictify["emoticons"] = emoticons;
     }
     
 }

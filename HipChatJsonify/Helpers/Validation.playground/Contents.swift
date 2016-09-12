@@ -119,7 +119,7 @@ func capturedGroups(withRegex pattern: String, text: String) -> [String] {
     
     var regex: NSRegularExpression
     do {
-        regex = try NSRegularExpression(pattern: pattern, options: [])
+        regex = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
     } catch {
         return results
     }

@@ -3,7 +3,7 @@
 import Cocoa
 import XCPlayground
 
-let input = "This is a test with the URL https://www.hackingwithswift.com to be detected."
+let input = "This is a test with the URL https://www.hackingwithswift.com to be detected. https://www.hackingwithswift.com d;lskfjdfl;kj https://www.hackingwithswift.com sflkdjsf;ldskjfdslkfj"
 let detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
 let matches = detector.matchesInString(input, options: [], range: NSRange(location:0, length: input.utf8.count));
     
@@ -60,7 +60,7 @@ func matchesForRegexInText(regex: String, text: String) -> [String] {
     }
 }
 
-let string = "🇩🇪€4€9";
+let string = "🇩🇪€4€9 dfkldjsf;lkdj 🇩🇪€4€9 s;dlfkdjflkdj 🇩🇪€4€9 d;lsfkjd 🇩🇪€4€9";
 let matchesString = matchesForRegexInText("[0-9]", text: string);
 print(matchesString);
 

@@ -13,6 +13,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     @IBOutlet weak var inputMsg: UITextField!
     
     let manager  = NetworkManager();
+    var inputMsgDictify = NSMutableDictionary();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,18 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     }
     
     func didRecievePageTitle(URL URL: String, title: String){
-        var pageInfo = [String:String]();
-        pageInfo[URL] = title;
-        print(pageInfo);
+    
+        var linkInfo = [String:String]()
+        linkInfo["url"] = URL;
+        linkInfo["title"] = title;
+        
+        let link = Links(dictionary: linkInfo);
+        
+        self.inputMsgDictify.setValue(link, forKey: "links")
+        
+        let userMsg = UserMsg(dictionary: self.inputMsgDictify);
+        
+        self.inputMsg.text = "";
     }
 
     @IBAction func test(sender: AnyObject) {
@@ -35,19 +45,21 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         let msg = self.inputMsg.text!;
         
-        var links = matchFinder.linkMatches(input: msg);
+        
         GCDispatch.async(){
+            let links = matchFinder.linkMatches(input: msg);
             links.map{self.manager.getURLContent($0)};
         }
         
-        //hala inja biam dige begam ke ba map har chie pass bedam be model class marboote
-        //"@(.[^\\s]+)"
-        //(@.[^\\s]+)|\\((.*?)\\)
         let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
         let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
+        
         print(mentions);
-        print(emoticons)
-        //let msgSpecialContent = MsgSpecialContent();
+        print(emoticons);
+        
+
+        self.inputMsgDictify.setValue(mentions, forKey: "mentions");
+        self.inputMsgDictify.setValue(emoticons, forKey: "emoticons");
     }
     
 }

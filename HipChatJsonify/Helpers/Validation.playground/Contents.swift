@@ -16,7 +16,7 @@ let matches = detector.matchesInString(input, options: [], range: NSRange(locati
 
 let NSInput = input as NSString;
 let linkMatches = matches.map{NSInput.substringWithRange($0.range)};
-//print(linkMatches);
+print(linkMatches);
 
 
 let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
@@ -147,9 +147,30 @@ func capturedGroups(withRegex pattern: String, text: String) -> [String] {
 print(capturedGroups(withRegex: "<title>(.+?)<\\/title>",text: "<title>reza</title>"));
 
 
-let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
+let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com http://stackoverflow.com";
 let emitconMatches = capturedGroups(withRegex: "@(.[^\\s]+)" , text: emitcons);
 let mentionsMatches = capturedGroups(withRegex: "\\((.*?)\\)" , text: emitcons);
 print(emitconMatches);
-print(mentionsMatches)
+print(mentionsMatches);
+
+//This is a dictionary that will be an embedded object in a later dictionary below.
+var nameDictionary: NSDictionary = ["first":"James", "last":"Jameson"]
+//This is your data as a Dictionary of key:value. Note the unvarying string data type of the key and varying data types of the values.
+var dataDictionary: NSDictionary = ["name":nameDictionary, "age": 25, "location":"London", "isMember":true, "balance":102.32]
+var marr = ["reza","ali"];
+//Do, try , catch
+do {
+    //this is your json data as NSData that will be your payload for your REST HTTP call.
+    let JSONPayload: NSData = try NSJSONSerialization.dataWithJSONObject(dataDictionary, options: NSJSONWritingOptions.PrettyPrinted)
+    
+    //This is unnecessary, but I'm echo-checking the data from the step above.  You don't need to do this in production.  Just to see the JSON in native format.
+    let JSONString = NSString(data: JSONPayload, encoding: NSUTF8StringEncoding) as! String
+    print("\(JSONString)")
+    
+    //From here you should carry on with your task or assign JSONPayload to a varialble outside of this block
+} catch {//catch errors thrown by the NSJSONSerialization.dataWithJSONObject func above.
+    let err = error as NSError
+    NSLog("\(err.localizedDescription)")
+}
+
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

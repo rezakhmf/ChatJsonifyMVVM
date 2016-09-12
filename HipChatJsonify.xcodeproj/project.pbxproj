@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		545F72D4D056AE7A81B7F919 /* Pods_HipChatJsonify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */; };
+		576F4CE41D867EED0005EE77 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576F4CE31D867EED0005EE77 /* Links.swift */; };
 		57CDB9F81D7903B800611306 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9F71D7903B800611306 /* NetworkManager.swift */; };
 		57CDB9FA1D7CFC5E00611306 /* MatchFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9F91D7CFC5E00611306 /* MatchFinder.swift */; };
 		F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7861D60A9C900553252 /* AppDelegate.swift */; };
@@ -18,7 +19,7 @@
 		F510B79C1D60A9C900553252 /* HipChatJsonifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B79B1D60A9C900553252 /* HipChatJsonifyTests.swift */; };
 		F510B7A71D60A9C900553252 /* HipChatJsonifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */; };
 		F520FAA71D72B63B006EBCDC /* MsgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F520FAA61D72B63B006EBCDC /* MsgParser.swift */; };
-		F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */; };
+		F567EFAD1D6341D500CD87D2 /* UserMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAC1D6341D500CD87D2 /* UserMsg.swift */; };
 		F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F567EFAE1D6346AC00CD87D2 /* hjk.cpp */; };
 		F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F567EFB11D6346D700CD87D2 /* ghjkl.swift */; };
 		F5C05E211D8458E6007C624B /* GCDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C05E201D8458E6007C624B /* GCDispatch.swift */; };
@@ -45,6 +46,7 @@
 		24B0D8CF4115E87ACAB7275B /* Pods-HipChatJsonify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.debug.xcconfig"; sourceTree = "<group>"; };
 		2E923CB592A74BA373234B0A /* Pods_HipChatJsonify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HipChatJsonify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		574641841D768E90003976EE /* Validation.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Validation.playground; sourceTree = "<group>"; };
+		576F4CE31D867EED0005EE77 /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		57CDB9F71D7903B800611306 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		57CDB9F91D7CFC5E00611306 /* MatchFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchFinder.swift; sourceTree = "<group>"; };
 		7F23E3C82B98F9212D2B18D4 /* Pods-HipChatJsonify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HipChatJsonify.release.xcconfig"; path = "Pods/Target Support Files/Pods-HipChatJsonify/Pods-HipChatJsonify.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		F510B7A61D60A9C900553252 /* HipChatJsonifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipChatJsonifyUITests.swift; sourceTree = "<group>"; };
 		F510B7A81D60A9C900553252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F520FAA61D72B63B006EBCDC /* MsgParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgParser.swift; sourceTree = "<group>"; };
-		F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgSpecialContent.swift; sourceTree = "<group>"; };
+		F567EFAC1D6341D500CD87D2 /* UserMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMsg.swift; sourceTree = "<group>"; };
 		F567EFAE1D6346AC00CD87D2 /* hjk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hjk.cpp; sourceTree = "<group>"; };
 		F567EFAF1D6346AC00CD87D2 /* hjk.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hjk.hpp; sourceTree = "<group>"; };
 		F567EFB11D6346D700CD87D2 /* ghjkl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ghjkl.swift; sourceTree = "<group>"; };
@@ -201,7 +203,8 @@
 		F567EFAB1D633CF000CD87D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F567EFAC1D6341D500CD87D2 /* MsgSpecialContent.swift */,
+				F567EFAC1D6341D500CD87D2 /* UserMsg.swift */,
+				576F4CE31D867EED0005EE77 /* Links.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,13 +397,14 @@
 			files = (
 				F520FAA71D72B63B006EBCDC /* MsgParser.swift in Sources */,
 				57CDB9FA1D7CFC5E00611306 /* MatchFinder.swift in Sources */,
-				F567EFAD1D6341D500CD87D2 /* MsgSpecialContent.swift in Sources */,
+				F567EFAD1D6341D500CD87D2 /* UserMsg.swift in Sources */,
 				F567EFB01D6346AC00CD87D2 /* hjk.cpp in Sources */,
 				57CDB9F81D7903B800611306 /* NetworkManager.swift in Sources */,
 				F5C05E211D8458E6007C624B /* GCDispatch.swift in Sources */,
 				F510B7891D60A9C900553252 /* ViewController.swift in Sources */,
 				F567EFB21D6346D700CD87D2 /* ghjkl.swift in Sources */,
 				F510B7871D60A9C900553252 /* AppDelegate.swift in Sources */,
+				576F4CE41D867EED0005EE77 /* Links.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

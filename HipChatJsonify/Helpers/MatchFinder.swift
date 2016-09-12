@@ -13,18 +13,25 @@ class MatchFinder {
     
     // MARK: – Helper classer to get matches based on regex pattern
     
-    func matchesInText( input input: String, regexPattern: String) -> [String] {
+    func capturedGroups(withRegex pattern: String, input text: String) -> [String] {
+        var results = [String]()
         
+        var regex: NSRegularExpression
         do {
-            let regex = try NSRegularExpression(pattern: regexPattern, options: .CaseInsensitive);
-            let nsInput = input as NSString;
-            let matches = regex.matchesInString(input as String,
-                                                options: [], range: NSMakeRange(0, nsInput.length));
-            return matches.map { nsInput.substringWithRange($0.range)};
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)");
-            return [];
+            regex = try NSRegularExpression(pattern: pattern, options: [])
+        } catch {
+            return results
         }
+        
+        let matches = regex.matchesInString(text, options: [], range: NSRange(location:0, length: text.characters.count))
+        
+        for match in matches {
+            let capturedGroupIndex = match.rangeAtIndex(1)
+            let matchedString = (text as NSString).substringWithRange(capturedGroupIndex)
+            results.append(matchedString)
+        }
+        
+        return results
     }
     
     // MARK: – Helper classer to get links on an input string

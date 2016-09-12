@@ -41,10 +41,12 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         }
         
         //hala inja biam dige begam ke ba map har chie pass bedam be model class marboote
-        let mentionsEmoticonsPattern = "(@.[^\\s]+)|\\((.*?)\\)";
-        
-        let mentiondsEmoticons = matchFinder.matchesInText(input: msg, regexPattern: mentionsEmoticonsPattern);
-        print(mentiondsEmoticons);
+        //"@(.[^\\s]+)"
+        //(@.[^\\s]+)|\\((.*?)\\)
+        let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
+        let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
+        print(mentions);
+        print(emoticons)
         //let msgSpecialContent = MsgSpecialContent();
     }
     

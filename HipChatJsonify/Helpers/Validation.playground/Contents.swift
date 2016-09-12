@@ -78,11 +78,12 @@ task2.resume();
 func matchesForRegexInText(regex: String, text: String) -> [String] {
     
     do {
-        let regex = try NSRegularExpression(pattern: regex, options: [])
-        let nsString = text as NSString
+        let regex = try NSRegularExpression(pattern: regex, options: []);
+        let nsString = text as NSString;
         let results = regex.matchesInString(text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-        return results.map{ nsString.substringWithRange($0.range)}
+                                            options: [], range: NSMakeRange(0, nsString.length));
+        results.map{print($0)};
+        return results.map{ nsString.substringWithRange($0.range)};
     } catch let error as NSError {
        print("invalid regex: \(error.localizedDescription)")
         return []
@@ -90,18 +91,65 @@ func matchesForRegexInText(regex: String, text: String) -> [String] {
 }
 
 
-let emitcons = "reza @ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
-let emitconMatches = matchesForRegexInText("(@.[^\\s]+)|\\((.*?)\\)" , text: emitcons);
-//print(emitconMatches);
 
 
-let titleHTML = "<title>reza</title> dsflkjsdf"
-let title = matchesForRegexInText("<title>(.+?)<\\/title>" , text: titleHTML)[0];
-print(title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(7), end: title.endIndex.advancedBy(-8))));
+let titleHTML = "<title>reza</title>"
+//let title = matchesForRegexInText("<title>(.+?)<\\/title>" , text: titleHTML)[0];
+let title2 = matchesForRegexInText("<title>(.+?)<\\/title>" , text: titleHTML);
+print(title2[0]);
+//print(title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(7), end: title.endIndex.advancedBy(-8))));
+
+let regex   = try! NSRegularExpression(pattern: "(?<=\\()[^()]{1,10}(?=\\))", options: [])
+let text = "(some text) some other text";
+regex.enumerateMatchesInString(text, options: [], range: NSMakeRange(0, (text as NSString).length))
+{
+    (result, _, _) in
+    let match = (text as NSString).substringWithRange(result!.range)
+    
+    if (match.characters.count <= 10)
+    {
+        print(match)
+    }
+}
 
 
 
+func capturedGroups(withRegex pattern: String, text: String) -> [String] {
+    var results = [String]()
+    
+    var regex: NSRegularExpression
+    do {
+        regex = try NSRegularExpression(pattern: pattern, options: [])
+    } catch {
+        return results
+    }
+    
+    let matches = regex.matchesInString(text, options: [], range: NSRange(location:0, length: text.characters.count))
+    
+   // guard let match = matches.first else { return matches }
+    
+    
+    
+    //let lastRangeIndex = match.numberOfRanges - 1
+    //guard lastRangeIndex >= 1 else { return results }
+    
+    //for i in 1...lastRangeIndex {
+    for match in matches {
+        let capturedGroupIndex = match.rangeAtIndex(1)
+        let matchedString = (text as NSString).substringWithRange(capturedGroupIndex)
+        results.append(matchedString)
+    }
+    
+    return results
+}
 
 
+print(capturedGroups(withRegex: "<title>(.+?)<\\/title>",text: "<title>reza</title>"));
 
+
+let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
+let emitconMatches = capturedGroups(withRegex: "@(.[^\\s]+)" , text: emitcons);
+let mentionsMatches = capturedGroups(withRegex: "\\((.*?)\\)" , text: emitcons);
+print(emitconMatches);
+print(mentionsMatches)
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

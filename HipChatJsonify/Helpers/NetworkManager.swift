@@ -46,8 +46,10 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
                 let pageContent = String(NSString(data: data!, encoding: NSUTF8StringEncoding));
                 
                 let matchFinder = MatchFinder();
-                let pageTitle = matchFinder.matchesInText(input: pageContent, regexPattern: "\\<title>.*?\\<\\/title>");
-                self.delegate!.didRecievePageTitle(URL: url, title: pageTitle[0]);
+                let pageTitles = matchFinder.matchesInText(input: pageContent, regexPattern: "\\<title>.*?\\<\\/title>");
+                let pageTitleContent = pageTitles[0].substringWithRange(Range<String.Index>(start: title[0].startIndex.advancedBy(7), end: title[0].endIndex.advancedBy(-8)))
+                
+                self.delegate!.didRecievePageTitle(URL: url, title: pageTitleContent);
             }
         });
         

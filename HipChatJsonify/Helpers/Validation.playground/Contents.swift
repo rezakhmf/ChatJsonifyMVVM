@@ -3,11 +3,8 @@
 import Cocoa
 import XCPlayground
 
-<<<<<<< HEAD
 let input = "This is a test with the URL https://www.hackingwithswift.com to be detected. https://www.hackingwithswift.com d;lskfjdfl;kj https://www.hackingwithswift.com sflkdjsf;ldskjfdslkfj"
-=======
-let input = "This is a test with the URL https://www.hackingwithswift.com to be detected in https://www.hackingwithswift.com "
->>>>>>> babb279c471936ed81bdef5def7ea8214e411c0f
+
 let detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
 let matches = detector.matchesInString(input, options: [], range: NSRange(location:0, length: input.utf8.count));
     
@@ -19,7 +16,7 @@ let matches = detector.matchesInString(input, options: [], range: NSRange(locati
 
 let NSInput = input as NSString;
 let linkMatches = matches.map{NSInput.substringWithRange($0.range)};
-print(linkMatches);
+//print(linkMatches);
 
 
 let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
@@ -34,16 +31,16 @@ let session = NSURLSession(configuration: configuration);
 
     let task = session.dataTaskWithRequest(request) { (data, response, error) in
     if (error != nil){ print(error);}
-    print(response);
+    //print(response);
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.URL
-        print(statusCode!);
-    print(data);
-        print("task is completed");
+       // print(statusCode!);
+    //print(data);
+       // print("task is completed");
   
         do{
             let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments);
-            print(json);
+            //print(json);
             
         }catch{
         }
@@ -68,12 +65,12 @@ let session2 = NSURLSession(configuration: configuration2);
 
 let task2 = session.dataTaskWithRequest(request2) {data, response, error in
     if (error != nil){
-        print(error);
+       // print(error);
         return;}
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.URL
-    print(httpResponse)
-    print("task is completed");
+   // print(httpResponse)
+    //print("task is completed");
 };
 
 task2.resume();
@@ -85,24 +82,23 @@ func matchesForRegexInText(regex: String, text: String) -> [String] {
         let nsString = text as NSString
         let results = regex.matchesInString(text,
                                             options: [], range: NSMakeRange(0, nsString.length))
-        return results.map { nsString.substringWithRange($0.range)}
+        return results.map{ nsString.substringWithRange($0.range)}
     } catch let error as NSError {
-        print("invalid regex: \(error.localizedDescription)")
+       print("invalid regex: \(error.localizedDescription)")
         return []
     }
 }
 
-<<<<<<< HEAD
-let string = "🇩🇪€4€9 dfkldjsf;lkdj 🇩🇪€4€9 s;dlfkdjflkdj 🇩🇪€4€9 d;lsfkjd 🇩🇪€4€9";
-let matchesString = matchesForRegexInText("[0-9]", text: string);
-print(matchesString);
-=======
+
 let emitcons = "reza @ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
 let emitconMatches = matchesForRegexInText("(@.[^\\s]+)|\\((.*?)\\)" , text: emitcons);
-print(emitconMatches);
+//print(emitconMatches);
 
 
->>>>>>> babb279c471936ed81bdef5def7ea8214e411c0f
+let titleHTML = "<title>reza</title> dsflkjsdf"
+let title = matchesForRegexInText("<title>(.+?)<\\/title>" , text: titleHTML)[0];
+print(title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(7), end: title.endIndex.advancedBy(-8))));
+
 
 
 

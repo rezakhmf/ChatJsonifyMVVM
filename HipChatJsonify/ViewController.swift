@@ -10,64 +10,43 @@ import UIKit
 
 class ViewController: UIViewController, NetworkManagerDelegate{
 
+    @IBOutlet weak var inputMsg: UITextField!
+    
+    let manager  = NetworkManager();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let manager  = NetworkManager();
         manager.delegate = self;
-        manager.getWeatherInfo();
-        print("loaded");
-        //(@.[^\s]+) find mentioned
-        //{(.[^\s]+)} find emiticons
     }
     
      func didFailToReceiveResponse() {
         print("nothing got back");
     }
-     func didRecieveResponse(info: Dictionary<String,AnyObject>) {
-        //let name = info["name"];
-       // print("name: \(info)");
-        
-       // print(info.startIndex.advancedBy(1));
-        print(info)
-       // let theKey = info.endIndex;
-        //print(info);
-        
-        //let main = info["main"];
-        //print("humidity: \(main!["humidity"])");
-        
+    
+    func didRecievePageTitle(URL URL: String, title: String){
+        var pageInfo = [String:String]();
+        pageInfo[URL] = title;
+        print(pageInfo);
     }
 
     @IBAction func test(sender: AnyObject) {
         
-        let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
+        let matchFinder = MatchFinder();
         
-        configuration.TLSMinimumSupportedProtocol = SSLProtocol.TLSProtocol1;
+        let msg = self.inputMsg.text!;
         
-        let url = NSURL.init(string: "http://stackoverflow.com");
+        var links = matchFinder.linkMatches(input: msg);
+        GCDispatch.async(){
+            links.map{self.manager.getURLContent($0)};
+        }
         
-        let request = NSURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 0);
+        //hala inja biam dige begam ke ba map har chie pass bedam be model class marboote
+        let mentionsEmoticonsPattern = "(@.[^\\s]+)|\\((.*?)\\)";
         
-        let session = NSURLSession(configuration: configuration);
-        
-        let task = session.dataTaskWithRequest(request) {data, response, error in
-            if (error != nil){
-                print(error);
-                return;}
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.URL
-            print(statusCode)
-            print("task is completed");
-        };
-        
-        task.resume();
+        let mentiondsEmoticons = matchFinder.matchesInText(input: msg, regexPattern: mentionsEmoticonsPattern);
+        print(mentiondsEmoticons);
+        //let msgSpecialContent = MsgSpecialContent();
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

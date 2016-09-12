@@ -3,15 +3,23 @@
 import Cocoa
 import XCPlayground
 
+<<<<<<< HEAD
 let input = "This is a test with the URL https://www.hackingwithswift.com to be detected. https://www.hackingwithswift.com d;lskfjdfl;kj https://www.hackingwithswift.com sflkdjsf;ldskjfdslkfj"
+=======
+let input = "This is a test with the URL https://www.hackingwithswift.com to be detected in https://www.hackingwithswift.com "
+>>>>>>> babb279c471936ed81bdef5def7ea8214e411c0f
 let detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
 let matches = detector.matchesInString(input, options: [], range: NSRange(location:0, length: input.utf8.count));
     
     
     for match in matches {
         let url = (input as NSString).substringWithRange(match.range);
-    print(url)
+        //print(url)
 }
+
+let NSInput = input as NSString;
+let linkMatches = matches.map{NSInput.substringWithRange($0.range)};
+print(linkMatches);
 
 
 let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration();
@@ -29,9 +37,9 @@ let session = NSURLSession(configuration: configuration);
     print(response);
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.URL
-    print(statusCode!);
-    //print(data);
-    print("task is completed");
+        print(statusCode!);
+    print(data);
+        print("task is completed");
   
         do{
             let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments);
@@ -45,6 +53,30 @@ let session = NSURLSession(configuration: configuration);
 
 task.resume();
 
+
+
+
+let configuration2 = NSURLSessionConfiguration.ephemeralSessionConfiguration();
+
+configuration.TLSMinimumSupportedProtocol = SSLProtocol.TLSProtocol1;
+
+let url2 = NSURL.init(string: "http://stackoverflow.com");
+
+let request2 = NSURLRequest(URL: url2!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 0);
+
+let session2 = NSURLSession(configuration: configuration2);
+
+let task2 = session.dataTaskWithRequest(request2) {data, response, error in
+    if (error != nil){
+        print(error);
+        return;}
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.URL
+    print(httpResponse)
+    print("task is completed");
+};
+
+task2.resume();
 
 func matchesForRegexInText(regex: String, text: String) -> [String] {
     
@@ -60,9 +92,17 @@ func matchesForRegexInText(regex: String, text: String) -> [String] {
     }
 }
 
+<<<<<<< HEAD
 let string = "🇩🇪€4€9 dfkldjsf;lkdj 🇩🇪€4€9 s;dlfkdjflkdj 🇩🇪€4€9 d;lsfkjd 🇩🇪€4€9";
 let matchesString = matchesForRegexInText("[0-9]", text: string);
 print(matchesString);
+=======
+let emitcons = "reza @ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com";
+let emitconMatches = matchesForRegexInText("(@.[^\\s]+)|\\((.*?)\\)" , text: emitcons);
+print(emitconMatches);
+
+
+>>>>>>> babb279c471936ed81bdef5def7ea8214e411c0f
 
 
 

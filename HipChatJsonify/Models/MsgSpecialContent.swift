@@ -20,8 +20,6 @@ class MsgSpecialContent {
         self.mentions = mentions;
         self.emoticons = emoticons;
         self.links = links;
-        
     }
-    
     
 }

@@ -14,6 +14,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     let manager  = NetworkManager();
     var inputMsgDictify = Dictionary<String, [AnyObject]>();//NSMutableDictionary();
+    var semaphore = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,14 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         self.inputMsgDictify["links"] = links;
         
         let userMsg = UserMsg(dictionary: self.inputMsgDictify);
+        
+        
+    //    print(links);
+    
+        self.semaphore -= 1;
+        if(self.semaphore < 1) {
+          print(userMsg);
+        }
     }
 
     @IBAction func test(sender: AnyObject) {
@@ -42,12 +51,12 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         let matchFinder = MatchFinder();
         
         let msg = self.inputMsg.text!;
-        
+        let links = matchFinder.linkMatches(input: msg);
         
         GCDispatch.async(){
-            let links = matchFinder.linkMatches(input: msg);
             links.map{self.manager.getURLContent($0)};
-        }
+                self.semaphore  += 1;
+            }
         
         let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
         let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);

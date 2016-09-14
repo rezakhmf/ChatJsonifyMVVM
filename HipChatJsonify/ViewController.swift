@@ -13,7 +13,10 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     @IBOutlet weak var inputMsg: UITextField!
     
     let manager  = NetworkManager();
-    var inputMsgDictify = Dictionary<String, [AnyObject]>();//NSMutableDictionary();
+    let group = dispatch_group_create()
+    let queue: dispatch_queue_t = dispatch_queue_create("dispatch.asyncGroup", DISPATCH_QUEUE_CONCURRENT);
+    
+    var inputMsgDictify = [String:[AnyObject]]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,20 +43,24 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     @IBAction func test(sender: AnyObject) {
         
         let matchFinder = MatchFinder();
-        
         let msg = self.inputMsg.text!;
         
-        
-        GCDispatch.async(){
-            let links = matchFinder.linkMatches(input: msg);
+        GCDispatch.asyncGroup(group,queue: queue){
+            
             links.map{self.manager.getURLContent($0)};
         }
         
-        let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
-        let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
-    
-        self.inputMsgDictify["mentions"] = mentions;
-        self.inputMsgDictify["emoticons"] = emoticons;
+        
+        GCDispatch.asyncGroup(group,queue: queue){
+            let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
+            self.inputMsgDictify["mentions"] = mentions;
+        }
+        
+        
+        GCDispatch.asyncGroup(group,queue: queue){
+            let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
+            self.inputMsgDictify["emoticons"] = emoticons;
+        }
     }
     
 }

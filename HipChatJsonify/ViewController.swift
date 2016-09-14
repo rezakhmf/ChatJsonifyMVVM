@@ -69,18 +69,15 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         GCDispatch.asyncGroup(group,queue: queue){
             let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
             self.inputMsgDictify["mentions"] = mentions;
-            //print(mentions)
         }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
             let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
             self.inputMsgDictify["emoticons"] = emoticons;
-            //print(emoticons)
         }
         
         dispatch_group_notify(group, queue) {
-            // self.semaphore  += 1;
             self.locked = false;
         }
     }

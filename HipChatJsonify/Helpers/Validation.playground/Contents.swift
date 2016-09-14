@@ -147,7 +147,7 @@ func capturedGroups(withRegex pattern: String, text: String) -> [String] {
 print(capturedGroups(withRegex: "<title>(.+?)<\\/title>",text: "<title>reza</title>"));
 
 
-let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com http://stackoverflow.com";
+let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com http://news.com.au";
 let emitconMatches = capturedGroups(withRegex: "@(.[^\\s]+)" , text: emitcons);
 let mentionsMatches = capturedGroups(withRegex: "\\((.*?)\\)" , text: emitcons);
 print(emitconMatches);
@@ -176,4 +176,21 @@ do {
 let myDictionary: [String:[AnyObject]] = ["Hello": [1, 2, 3], "World": [4, 5, 6]];
 print(myDictionary);
 
+
+
+
+let group = dispatch_group_create();
+dispatch_group_notify(group, dispatch_get_main_queue()){
+    print("finished")
+};
+
+for i in 0..<4 {
+    dispatch_group_enter(group);
+        print(i)
+    //print(group.)
+    sleep(2);
+    
+    dispatch_group_leave(group);
+    
+}
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

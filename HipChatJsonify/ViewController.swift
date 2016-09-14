@@ -13,10 +13,15 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     @IBOutlet weak var inputMsg: UITextField!
     
     let manager  = NetworkManager();
+    
     let group = dispatch_group_create()
     let queue: dispatch_queue_t = dispatch_queue_create("dispatch.asyncGroup", DISPATCH_QUEUE_CONCURRENT);
     
     var inputMsgDictify = [String:[AnyObject]]();
+    var linkInfo = [String:String]();
+    var links = [[String:String]]();
+    var semaphore = 0;
+    var locked = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +34,8 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     func didRecievePageTitle(URL URL: String, title: String){
     
-        var links = [Dictionary<String, String>]();
-        var linkInfo = Dictionary<String, String>();
+        
+     
         linkInfo["url"] = URL;
         linkInfo["title"] = title;
         links.append(linkInfo);
@@ -38,28 +43,45 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         self.inputMsgDictify["links"] = links;
         
         let userMsg = UserMsg(dictionary: self.inputMsgDictify);
+        
+        
+        // print(links);
+    
+        self.semaphore -= 1;
+        if(self.semaphore < 1 && !self.locked) {
+            print(inputMsgDictify);
+        }
     }
 
     @IBAction func test(sender: AnyObject) {
         
         let matchFinder = MatchFinder();
         let msg = self.inputMsg.text!;
+
         
         GCDispatch.asyncGroup(group,queue: queue){
-            
+            let links = matchFinder.linkMatches(input: msg);
+            self.semaphore = links.count;
             links.map{self.manager.getURLContent($0)};
-        }
+            }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
             let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
             self.inputMsgDictify["mentions"] = mentions;
+            //print(mentions)
         }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
             let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
             self.inputMsgDictify["emoticons"] = emoticons;
+            //print(emoticons)
+        }
+        
+        dispatch_group_notify(group, queue) {
+            // self.semaphore  += 1;
+            self.locked = false;
         }
     }
     

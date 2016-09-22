@@ -10,7 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, NetworkManagerDelegate{
 
-    @IBOutlet weak var inputMsg: UITextField!
+    
+    
+    @IBOutlet weak var inputMsg: UITextView!
+    
+    @IBOutlet weak var digestify: UIButton!
     
     let manager  = NetworkManager();
     
@@ -22,10 +26,12 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     var links = [[String:String]]();
     var semaphore = 0;
     var locked = true;
+    var resetFlag = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self;
+        inputMsg.text = "sample input: @john and @puall are comming in (happy) or (grumpy) on the follwing website http://stackoverflow.com and  http://news.com.au";
     }
     
      func didFailToReceiveResponse() {
@@ -33,27 +39,45 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     }
     
     func didRecievePageTitle(URL URL: String, title: String){
-    
-        
      
         linkInfo["url"] = URL;
         linkInfo["title"] = title;
         links.append(linkInfo);
         
         self.inputMsgDictify["links"] = links;
-        
-        let userMsg = UserMsg(dictionary: self.inputMsgDictify);
-        
-        
-        // print(links);
     
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
             print(inputMsgDictify);
+            do {
+                let data = try NSJSONSerialization.dataWithJSONObject(inputMsgDictify, options:[])
+                
+                let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                inputMsg.text = dataString as String;
+                digestify.titleLabel?.text = "Reset"
+                inputMsgDictify.removeAll();
+                resetFlag = true;
+                 //
+                
+            } catch {
+                print("JSON serialization failed:  \(error)")
+            }
         }
     }
+    
+    
+    @IBAction func msgDistiller(sender: AnyObject) {
+    
 
-    @IBAction func test(sender: AnyObject) {
+        if(self.resetFlag) {
+            inputMsg.text = "";
+            sender.setTitle("Digestify", forState: .Normal);
+        }
+        
+        guard(inputMsg.text != "") else {
+            inputMsg.text = "please enter your message!";
+            return;
+        }
         
         let matchFinder = MatchFinder();
         let msg = self.inputMsg.text!;
@@ -79,7 +103,10 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         dispatch_group_notify(group, queue) {
             self.locked = false;
+            //sender.setTitle("Rest", forState: .Normal);
+            self.resetFlag = true;
         }
+        
     }
     
 }

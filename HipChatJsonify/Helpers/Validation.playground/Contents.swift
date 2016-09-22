@@ -147,7 +147,7 @@ func capturedGroups(withRegex pattern: String, text: String) -> [String] {
 print(capturedGroups(withRegex: "<title>(.+?)<\\/title>",text: "<title>reza</title>"));
 
 
-let emitcons = "@ali mohamad @amir maman (baba) baghie (elahe) http://stackoverflow.com http://news.com.au";
+let emitcons = " @john and @puall are comming in (happy) or (grumpy) on the follwing website http://stackoverflow.com and  http://news.com.au";
 let emitconMatches = capturedGroups(withRegex: "@(.[^\\s]+)" , text: emitcons);
 let mentionsMatches = capturedGroups(withRegex: "\\((.*?)\\)" , text: emitcons);
 print(emitconMatches);

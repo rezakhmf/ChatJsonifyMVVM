@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,23 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30z-fH-kMs">
-                                <rect key="frame" x="253" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="88j-c3-Jlf">
+                                <rect key="frame" x="180" y="74" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aIS-eT-j1W"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30z-fH-kMs">
+                                <rect key="frame" x="180" y="285" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Qfd-U3-4Ag"/>
+                                    <constraint firstAttribute="height" constant="30" id="yM3-QK-56r"/>
+                                </constraints>
+                                <state key="normal" title="Digestify"/>
                                 <connections>
-                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fru-7d-eJs"/>
+                                    <action selector="msgDistiller:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zbO-t4-a4E"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0X6-7x-0XS">
-                                <rect key="frame" x="219" y="145" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="88j-c3-Jlf" firstAttribute="trailing" secondItem="30z-fH-kMs" secondAttribute="trailing" id="4rJ-VU-R4H"/>
+                            <constraint firstItem="30z-fH-kMs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5cs-uV-9KK"/>
+                            <constraint firstItem="30z-fH-kMs" firstAttribute="top" secondItem="88j-c3-Jlf" secondAttribute="bottom" constant="83" id="AyT-td-GvI"/>
+                            <constraint firstItem="30z-fH-kMs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uQJ-4w-eRE"/>
+                            <constraint firstItem="88j-c3-Jlf" firstAttribute="leading" secondItem="30z-fH-kMs" secondAttribute="leading" id="xzI-wL-OqF"/>
+                            <constraint firstItem="88j-c3-Jlf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="yJx-zh-Lt9"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="inputMsg" destination="0X6-7x-0XS" id="ybg-fP-r6q"/>
+                        <outlet property="digestify" destination="30z-fH-kMs" id="tDC-JX-hWF"/>
+                        <outlet property="inputMsg" destination="88j-c3-Jlf" id="mK0-KX-r0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -49,19 +49,10 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
             print(inputMsgDictify);
-            do {
-                let data = try NSJSONSerialization.dataWithJSONObject(inputMsgDictify, options:[])
-                
-                let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-                inputMsg.text = dataString as String;
-                digestify.titleLabel?.text = "Reset"
-                inputMsgDictify.removeAll();
-                resetFlag = true;
-                 //
-                
-            } catch {
-                print("JSON serialization failed:  \(error)")
-            }
+            inputMsg.text = Utils.dictiionaryToJsonString(inputMsgDictify);
+            digestify.titleLabel?.text = "Reset"
+            inputMsgDictify.removeAll();
+            resetFlag = true;
         }
     }
     
@@ -103,7 +94,6 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         
         dispatch_group_notify(group, queue) {
             self.locked = false;
-            //sender.setTitle("Rest", forState: .Normal);
             self.resetFlag = true;
         }
         

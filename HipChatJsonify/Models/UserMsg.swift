@@ -10,6 +10,7 @@ import Foundation
 
 class UserMsg {
     
+    
     internal var mentions : Array<String>?
     internal var emoticons : Array<String>?
     internal var links : Array<Links>?
@@ -24,7 +25,7 @@ class UserMsg {
      
      - returns: Array of Json4Swift_Base Instances.
      */
-    internal class func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
+    internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
     {
         var models:[UserMsg] = []
         for item in array
@@ -63,4 +64,6 @@ class UserMsg {
         
         return dictionary
     }
+    
 }
+

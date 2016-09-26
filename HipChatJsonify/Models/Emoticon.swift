@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Emoticon {
+public struct Emoticon {
     var name:String;
     
     /**
@@ -21,8 +21,23 @@ struct Emoticon {
      
      - returns: Emoticons Instance.
      */
-    internal init?(name: String) {
+    public init?(name: String) {
         
         self.name = name;
+    }
+    
+    public static func modelsFromDictionaryArray(array:NSArray) -> [Emoticon]
+    {
+        var models:[Emoticon] = []
+        for item in array
+        {
+            models.append(Emoticon(name: item as! String)!)
+        }
+        return models
+    }
+    
+    public static func StringArrayOfEmoticonsNamefromMessage(msg:String) -> [String]{
+        let emoticons = MatchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
+        return emoticons.count>0 ? emoticons:["no emoticons!"];
     }
 }

@@ -45,8 +45,7 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
             } else {
                 let pageContent = String(NSString(data: data!, encoding: NSUTF8StringEncoding));
                 
-                let matchFinder = MatchFinder();
-                let pageTitles = matchFinder.capturedGroups(withRegex: "<title>(.+?)<\\/title>", input: pageContent);
+                let pageTitles = MatchFinder.capturedGroups(withRegex: "<title>(.+?)<\\/title>", input: pageContent);
                 
                 self.delegate!.didRecievePageTitle(URL: url, title: pageTitles[0]);
             }

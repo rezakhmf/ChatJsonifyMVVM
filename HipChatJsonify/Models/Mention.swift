@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Mention {
+public class Mention {
     
-    var name:String;
+    internal var name: String?
     
     /**
      Constructs the object based on the given String.
@@ -22,8 +22,25 @@ struct Mention {
      
      - returns: Mentions Instance.
      */
- internal init?(name: String) {
+ public init?(name: String) {
         
         self.name = name;
     }
+    
+    public static func modelsFromDictionaryArray(array:NSArray) -> [Mention]
+    {
+        var models:[Mention] = []
+        for item in array
+        {
+            models.append(Mention(name: item as! String)!)
+        }
+        return models
+    }
+    
+    public static func StringArrayOfMentionsNamefromMessage(msg:String) -> [String]{
+           let mentions = MatchFinder.capturedGroups(withRegex:"\\((.*?)\\)", input: msg);
+        return mentions.count>0 ? mentions:["no mentions!"];
+    }
+
+    
 }

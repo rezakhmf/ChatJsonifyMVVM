@@ -10,7 +10,8 @@
 import Foundation
 
 
-public class Links {
+public struct Link {
+    
     public var url : String?
     public var title : String?
     
@@ -24,12 +25,12 @@ public class Links {
      
      - returns: Array of Links Instances.
      */
-    public class func modelsFromDictionaryArray(array:NSArray) -> [Links]
+    public static func modelsFromDictionaryArray(array:NSArray) -> [Link]
     {
-        var models:[Links] = []
+        var models:[Link] = []
         for item in array
         {
-            models.append(Links(dictionary: item as! NSDictionary)!)
+            models.append(Link(dictionary: item as! NSDictionary)!)
         }
         return models
     }
@@ -44,7 +45,7 @@ public class Links {
      
      - returns: Links Instance.
      */
-    required public init?(dictionary: NSDictionary) {
+     public init?(dictionary: NSDictionary) {
         
         url = dictionary["url"] as? String
         title = dictionary["title"] as? String
@@ -64,6 +65,11 @@ public class Links {
         dictionary.setValue(self.title, forKey: "title")
         
         return dictionary
+    }
+    
+    public static func StringArrayOfLinksNamefromMessage(msg:String) -> [String]{
+        let links = MatchFinder.linkMatches(input: msg);
+        return links.count>0 ? links:["no emoticons!"];
     }
     
 }

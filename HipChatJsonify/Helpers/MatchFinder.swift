@@ -9,11 +9,11 @@
 import Foundation
 
 
-class MatchFinder {
+struct MatchFinder {
     
     // MARK: – Helper classer to get matches based on regex pattern
     
-    func capturedGroups(withRegex pattern: String, input text: String) -> [String] {
+    static func capturedGroups(withRegex pattern: String, input text: String) -> [String] {
         var results = [String]()
         
         var regex: NSRegularExpression
@@ -37,7 +37,7 @@ class MatchFinder {
     // MARK: – Helper classer to get links on an input string
         //this method is used as cover all types of links e.g. ftp, https and so on.
     
-    func linkMatches(input input: String) -> [String] {
+    static func linkMatches(input input: String) -> [String] {
         do {
             let detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
             let matches = detector.matchesInString(input, options: [], range: NSRange(location:0, length: input.utf8.count));

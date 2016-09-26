@@ -13,7 +13,7 @@ struct UserMsg {
     
     internal var mentions : Array<Mention>?
     internal var emoticons : Array<Emoticon>?
-    internal var links : Array<Links>?
+    internal var links : Array<Link>?
     
     /**
      Returns an array of models based on given dictionary.
@@ -48,7 +48,7 @@ struct UserMsg {
         
         if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
         if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
-        if (dictionary["links"] != nil) { links = Links.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
+        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
     }
     
     

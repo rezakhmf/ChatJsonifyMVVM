@@ -70,26 +70,23 @@ class ViewController: UIViewController, NetworkManagerDelegate{
             return;
         }
         
-        let matchFinder = MatchFinder();
         let msg = self.inputMsg.text!;
 
         
         GCDispatch.asyncGroup(group,queue: queue){
-            let links = matchFinder.linkMatches(input: msg);
+            let links = Link.StringArrayOfLinksNamefromMessage(msg);
             self.semaphore = links.count;
             links.map{self.manager.getURLContent($0)};
             }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            let mentions = matchFinder.capturedGroups(withRegex: "@(.[^\\s]+)", input: msg);
-            self.inputMsgDictify["mentions"] = mentions;
+            self.inputMsgDictify["mentions"] = Mention.StringArrayOfMentionsNamefromMessage(msg);
         }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            let emoticons = matchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
-            self.inputMsgDictify["emoticons"] = emoticons;
+            self.inputMsgDictify["emoticons"] = Emoticon.StringArrayOfEmoticonsNamefromMessage(msg);
         }
         
         dispatch_group_notify(group, queue) {

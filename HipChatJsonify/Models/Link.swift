@@ -69,7 +69,7 @@ public struct Link {
     
     public static func StringArrayOfLinksNamefromMessage(msg:String) -> [String]{
         let links = MatchFinder.linkMatches(input: msg);
-        return links.count>0 ? links:["no emoticons!"];
+        return links.isEmpty ? ["no emoticons!"]:links;
     }
     
 }

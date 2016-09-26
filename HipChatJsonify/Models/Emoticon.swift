@@ -38,6 +38,6 @@ public struct Emoticon {
     
     public static func StringArrayOfEmoticonsNamefromMessage(msg:String) -> [String]{
         let emoticons = MatchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
-        return emoticons.count>0 ? emoticons:["no emoticons!"];
+        return emoticons.isEmpty ? ["no emoticons!"]:emoticons;
     }
 }

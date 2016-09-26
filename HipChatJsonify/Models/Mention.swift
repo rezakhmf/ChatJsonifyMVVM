@@ -39,7 +39,7 @@ public class Mention {
     
     public static func StringArrayOfMentionsNamefromMessage(msg:String) -> [String]{
            let mentions = MatchFinder.capturedGroups(withRegex:"\\((.*?)\\)", input: msg);
-        return mentions.count>0 ? mentions:["no mentions!"];
+        return mentions.isEmpty ? ["no mentions!"]: mentions;
     }
 
     

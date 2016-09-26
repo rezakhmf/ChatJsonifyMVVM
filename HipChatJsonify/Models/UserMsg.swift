@@ -8,11 +8,11 @@
 
 import Foundation
 
-class UserMsg {
+struct UserMsg {
     
     
-    internal var mentions : Array<String>?
-    internal var emoticons : Array<String>?
+    internal var mentions : Array<Mention>?
+    internal var emoticons : Array<Emoticon>?
     internal var links : Array<Links>?
     
     /**
@@ -44,10 +44,10 @@ class UserMsg {
      - parameter dictionary:  NSDictionary from JSON.
      
      */
-    required internal init?(dictionary: NSDictionary) {
+     internal init?(dictionary: NSDictionary) {
         
-        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<String>)}
-        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<String>) }
+        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
+        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
         if (dictionary["links"] != nil) { links = Links.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
     }
     

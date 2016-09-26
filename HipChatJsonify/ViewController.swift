@@ -48,7 +48,10 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
-            print(inputMsgDictify);
+            let usrMsg = UserMsg(dictionary: self.inputMsgDictify);
+        
+            print(Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
+        
             inputMsg.text = Utils.dictiionaryToJsonString(inputMsgDictify);
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();

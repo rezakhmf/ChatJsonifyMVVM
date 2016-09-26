@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct Emoticon {
-    var name:String;
+public class Emoticon {
+    internal var name:String;
     
     /**
      Constructs the object based on the given string.

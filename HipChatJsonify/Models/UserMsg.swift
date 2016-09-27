@@ -61,7 +61,7 @@ struct UserMsg {
      - returns: NSDictionary.
      */
     internal func dictionaryRepresentation() -> NSDictionary {
-        return dictionary!
+        return dictionary!;
     }
     
 }

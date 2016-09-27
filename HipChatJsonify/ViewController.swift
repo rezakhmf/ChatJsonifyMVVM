@@ -31,7 +31,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self;
-        inputMsg.text = "sample input: @john and @puall are comming in (happy) or (grumpy) on the follwing website http://stackoverflow.com and  http://news.com.au";
+        inputMsg.text = "sample input: @john and @puall are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
     }
     
      func didFailToReceiveResponse() {
@@ -48,11 +48,12 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
+            
             let usrMsg = UserMsg(dictionary: self.inputMsgDictify);
         
             print(Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
         
-            inputMsg.text = Utils.dictiionaryToJsonString(inputMsgDictify);
+            inputMsg.text = Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation());//Utils.dictiionaryToJsonString(inputMsgDictify);
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();
             resetFlag = true;

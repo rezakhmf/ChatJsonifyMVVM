@@ -8,9 +8,50 @@
 
 import Foundation
 
-public class Mention {
+protocol Model {
     
-    internal var name: String?
+    var name: String { set get };
+    associatedtype ModelType;
+    static func modelsFromDictionaryArray(array:NSArray) -> [ModelType];
+    
+}
+
+protocol Util1 {
+    
+}
+
+
+extension Util1 where Self: Model {
+    
+    func findByRegex(withRegex pattern: String, input text: String) -> [String]{
+        var results = [String]()
+        
+        var regex: NSRegularExpression
+        do {
+            regex = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+        } catch {
+            return results
+        }
+        
+        let matches = regex.matchesInString(text, options: [], range: NSRange(location:0, length: text.characters.count))
+        
+        for match in matches {
+            let capturedGroupIndex = match.rangeAtIndex(1)
+            let matchedString = (text as NSString).substringWithRange(capturedGroupIndex)
+            results.append(matchedString)
+        }
+        
+        return results
+    }
+}
+
+
+
+
+public struct Mention: Model, Util1 {
+    
+    internal var name: String;
+    typealias ModelType = Mention;
     
     /**
      Constructs the object based on the given String.
@@ -37,10 +78,10 @@ public class Mention {
         return models
     }
     
-    public static func StringArrayOfMentionsNamefromMessage(msg:String) -> [String]{
-           let mentions = MatchFinder.capturedGroups(withRegex:"@(.[^\\s]+)", input: msg);
-        return mentions.isEmpty ? ["no mentions!"]: mentions;
-    }
+  
 
     
 }
+
+let men = Mention(name: "hi");
+men?.findByRegex(withRegex: <#T##String#>, input: <#T##String#>)

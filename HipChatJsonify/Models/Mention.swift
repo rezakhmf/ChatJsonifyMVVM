@@ -9,11 +9,11 @@
 import Foundation
 
 
-public struct Mention: EmoticonMentionModel {
+public struct Mention: EmoticonMentionModel,JSONSerializable {
     
     var name: String;
     
-    public init?(name: String) {
+    public init(name: String) {
         self.name = name;
     }
     

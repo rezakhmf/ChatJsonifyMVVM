@@ -38,12 +38,13 @@ extension Util{
 
 extension Util {
     
-     static func dictiionaryToJsonString(dictionary: NSDictionary) -> String {
+     static func dictiionaryToJsonString(dictionary: Dictionary<String,[Any]>) -> String {
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options:[])
-            
-            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            return dataString as String;
+           // let dict = dictionary as NSDictionary
+//            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options:[])
+//            
+//            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+//            return dataString as String;
             
         } catch {
             print("JSON serialization failed:  \(error)")

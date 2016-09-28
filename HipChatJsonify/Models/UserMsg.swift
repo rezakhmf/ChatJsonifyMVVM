@@ -8,37 +8,42 @@
 
 import Foundation
 
-struct UserMsg {
+protocol UserMsgModel: Model {
+    var mentions : Array<Mention>? {get set}
+    var emoticons : Array<Emoticon>? {get set}
+    var links : Array<Link>? {get set}
+}
+
+struct UserMsg: UserMsgModel,JSONSerializable{
+    
+    var mentions : Array<Mention>?
+    var emoticons : Array<Emoticon>?
+    var links : Array<Link>?
+    
+   // internal var dictionary: Dictionary<String,[Any]>?;
+    
+//    internal init?(dictionary: Dictionary<String,[Any]>) {
+//        
+//        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
+//        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
+//        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! Array<Link>) }
+//        self.dictionary = dictionary;
+//    }
     
     
-    internal var mentions : Array<Mention>?
-    internal var emoticons : Array<Emoticon>?
-    internal var links : Array<Link>?
-    
-    internal var dictionary: NSDictionary?;
-    
-    internal init?(dictionary: NSDictionary) {
-        
-        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
-        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
-        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
-        self.dictionary = dictionary;
-    }
-    
-    
-    internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
-    {
-        var models:[UserMsg] = []
-        for item in array
-        {
-            models.append(UserMsg(dictionary: item as! NSDictionary)!)
-        }
-        return models
-    }
-    
-    internal func dictionaryRepresentation() -> NSDictionary {
-        return dictionary!;
-    }
+//    internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
+//    {
+//        var models:[UserMsg] = []
+//        for item in array
+//        {
+//            models.append(UserMsg(dictionary: item as! Dictionary<String,[Any]>)!)
+//        }
+//        return models
+//    }
+//    
+//    internal func dictionaryRepresentation() -> Dictionary<String,[Any]> {
+//        return dictionary!;
+//    }
     
 }
 

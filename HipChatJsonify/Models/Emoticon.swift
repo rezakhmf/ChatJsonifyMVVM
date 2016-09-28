@@ -10,11 +10,11 @@ import Foundation
 
 
 
-public struct Emoticon: EmoticonMentionModel {
+public struct Emoticon: EmoticonMentionModel,JSONSerializable {
     
      var name:String;
     
-    public init?(name: String) {
+    public init(name: String) {
         self.name = name;
     }
     
@@ -23,7 +23,7 @@ public struct Emoticon: EmoticonMentionModel {
         var models:[Emoticon] = []
         for item in array
         {
-            models.append(Emoticon(name: item as! String)!)
+            models.append(Emoticon(name: item as! String))
         }
         return models
     }

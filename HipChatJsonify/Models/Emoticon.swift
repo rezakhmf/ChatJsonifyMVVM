@@ -8,25 +8,17 @@
 
 import Foundation
 
-public class Emoticon {
-    internal var name:String;
+
+
+public struct Emoticon: EmoticonMentionModel {
     
-    /**
-     Constructs the object based on the given string.
-     
-     Sample usage:
-     let emoticons = Emoticons(string)
-     
-     - parameter name:  String from JSON.
-     
-     - returns: Emoticons Instance.
-     */
+     var name:String;
+    
     public init?(name: String) {
-        
         self.name = name;
     }
     
-    public static func modelsFromDictionaryArray(array:NSArray) -> [Emoticon]
+    func modelsFromDictionaryArray(array:NSArray) -> [Emoticon]
     {
         var models:[Emoticon] = []
         for item in array
@@ -36,8 +28,4 @@ public class Emoticon {
         return models
     }
     
-    public static func StringArrayOfEmoticonsNamefromMessage(msg:String) -> [String]{
-        let emoticons = MatchFinder.capturedGroups(withRegex: "\\((.*?)\\)", input: msg);
-        return emoticons.isEmpty ? ["no emoticons!"]:emoticons;
-    }
 }

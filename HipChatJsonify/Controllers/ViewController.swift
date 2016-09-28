@@ -51,9 +51,9 @@ class ViewController: UIViewController, NetworkManagerDelegate{
             
             let usrMsg = UserMsg(dictionary: self.inputMsgDictify);
         
-            print(Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
+            print(Util.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
         
-            inputMsg.text = Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation());//Utils.dictiionaryToJsonString(inputMsgDictify);
+            inputMsg.text = Util.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation());//Utils.dictiionaryToJsonString(inputMsgDictify);
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();
             resetFlag = true;
@@ -78,19 +78,23 @@ class ViewController: UIViewController, NetworkManagerDelegate{
 
         
         GCDispatch.asyncGroup(group,queue: queue){
-            let links = Link.StringArrayOfLinksNamefromMessage(msg);
+            //var link = Link(dictionary: <#T##NSDictionary#>);
+            let links = Util.linkMatches(input: msg);
             self.semaphore = links.count;
             links.map{self.manager.getURLContent($0)};
             }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            self.inputMsgDictify["mentions"] = Mention.StringArrayOfMentionsNamefromMessage(msg);
+            let mentions = Util.findByRegex(withRegex: "@(.[^\\s]+)", input: msg)
+            self.inputMsgDictify["mentions"] = mentions;//mention?modelsFromDictionaryArray
+                //Mention.StringArrayOfMentionsNamefromMessage(msg);
         }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            self.inputMsgDictify["emoticons"] = Emoticon.StringArrayOfEmoticonsNamefromMessage(msg);
+            let emoticons = Util.findByRegex(withRegex: "\\((.*?)\\)", input: msg)
+            self.inputMsgDictify["emoticons"] = emoticons;
         }
         
         dispatch_group_notify(group, queue) {

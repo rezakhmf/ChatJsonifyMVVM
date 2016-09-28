@@ -17,16 +17,15 @@ struct UserMsg {
     
     internal var dictionary: NSDictionary?;
     
-    /**
-     Returns an array of models based on given dictionary.
-     
-     Sample usage:
-     let userMsg = UserMsg.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
-     
-     - parameter array:  NSArray from JSON dictionary.
-     
-     - returns: Array of Json4Swift_Base Instances.
-     */
+    internal init?(dictionary: NSDictionary) {
+        
+        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
+        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
+        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
+        self.dictionary = dictionary;
+    }
+    
+    
     internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
     {
         var models:[UserMsg] = []
@@ -37,29 +36,6 @@ struct UserMsg {
         return models
     }
     
-    /**
-     Constructs the object based on the given dictionary.
-     
-     Sample usage:
-     let yserMsg = UserMsg(someDictionaryFromJSON)
-     
-     - parameter dictionary:  NSDictionary from JSON.
-     
-     */
-     internal init?(dictionary: NSDictionary) {
-        
-        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
-        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
-        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
-        self.dictionary = dictionary;
-    }
-    
-    
-    /**
-     Returns the dictionary representation for the current instance.
-     
-     - returns: NSDictionary.
-     */
     internal func dictionaryRepresentation() -> NSDictionary {
         return dictionary!;
     }

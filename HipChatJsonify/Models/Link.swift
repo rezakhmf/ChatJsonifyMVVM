@@ -9,55 +9,41 @@
 
 import Foundation
 
+protocol LinkModel: Model {
+    var url : String? {get set}
+    var title : String? {get set}
+    init(dictionary: NSDictionary)
+}
 
-public struct Link {
+public struct Link: LinkModel{
+   
+    var url : String?
+    var title : String?
     
-    public var url : String?
-    public var title : String?
-    
-    /**
-     Returns an array of models based on given dictionary.
-     
-     Sample usage:
-     let links_list = Links.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
-     
-     - parameter array:  NSArray from JSON dictionary.
-     
-     - returns: Array of Links Instances.
-     */
-    public static func modelsFromDictionaryArray(array:NSArray) -> [Link]
-    {
-        var models:[Link] = []
-        for item in array
-        {
-            models.append(Link(dictionary: item as! NSDictionary)!)
-        }
-        return models
-    }
-    
-    /**
-     Constructs the object based on the given dictionary.
-     
-     Sample usage:
-     let links = Links(someDictionaryFromJSON)
-     
-     - parameter dictionary:  NSDictionary from JSON.
-     
-     - returns: Links Instance.
-     */
-     public init?(dictionary: NSDictionary) {
-        
+    public init(dictionary: NSDictionary) {
         url = dictionary["url"] as? String
         title = dictionary["title"] as? String
     }
     
+}
+
+extension Link {
     
-    /**
-     Returns the dictionary representation for the current instance.
-     
-     - returns: NSDictionary.
-     */
-    public func dictionaryRepresentation() -> NSDictionary {
+    static func modelsFromDictionaryArray(array:NSArray) -> [Link]
+    {
+        var links:[Link] = []
+        for item in array
+        {
+            links.append(Link(dictionary: item as! NSDictionary))
+        }
+        return links
+    }
+    
+}
+
+extension Link {
+    
+    func dictionaryRepresentation() -> NSDictionary {
         
         let dictionary = NSMutableDictionary()
         
@@ -66,10 +52,8 @@ public struct Link {
         
         return dictionary
     }
-    
-    public static func StringArrayOfLinksNamefromMessage(msg:String) -> [String]{
-        let links = MatchFinder.linkMatches(input: msg);
-        return links.isEmpty ? ["no emoticons!"]:links;
-    }
-    
+
 }
+    
+
+

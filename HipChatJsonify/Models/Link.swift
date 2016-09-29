@@ -13,7 +13,6 @@ protocol LinkModel: Model {
     var url : String {get set}
     var title : String {get set}
     init(url: String,title: String)
-    //init(dictionary: Dictionary<String,String>)
 }
 
 public struct Link: LinkModel,JSONSerializable{
@@ -27,26 +26,8 @@ public struct Link: LinkModel,JSONSerializable{
     }
     
     
-//    public init(dictionary: Dictionary<String,String>) {
-//        url = dictionary["url"]
-//        title = dictionary["title"]
-//    }
-    
 }
 
-extension Link {
-    
-    static func modelsFromDictionaryArray(array:Array<Link>) -> [Link]
-    {
-        var links:[Link] = []
-        for item in array
-        {
-       //     links.append(Link(dictionary: item as! Dictionary<String,String>))
-        }
-        return links
-    }
-    
-}
 
 extension Link {
     

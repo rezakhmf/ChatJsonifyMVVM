@@ -10,22 +10,12 @@ import Foundation
 
 
 
-public struct Emoticon: EmoticonMentionModel,JSONSerializable {
+public struct Emoticon: EmoticonMentionModel{
     
      var name:String;
     
     public init(name: String) {
         self.name = name;
-    }
-    
-    func modelsFromDictionaryArray(array:NSArray) -> [Emoticon]
-    {
-        var models:[Emoticon] = []
-        for item in array
-        {
-            models.append(Emoticon(name: item as! String))
-        }
-        return models
     }
     
 }

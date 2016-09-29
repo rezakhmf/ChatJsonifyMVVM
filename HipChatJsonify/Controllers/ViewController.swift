@@ -33,7 +33,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self;
-        inputMsg.text = "sample input: @john and @puall are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
+        inputMsg.text = "sample input: @reza and @paul are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
     }
     
      func didFailToReceiveResponse() {
@@ -42,29 +42,18 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     func didRecievePageTitle(URL URL: String, title: String){
         
-        var link = Link(url: URL, title: title)
+        let link = Link(url: URL, title: title)
         linksArray.append(link)
-     
-        //linkInfo["url"] = URL;
-        //linkInfo["title"] = title;
-        //links.append(linkInfo);
         
-        //self.inputMsgDictify["links"] = links;
-    
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
             
             self.userMsg.links = linksArray;
             
-            print(self.userMsg.links!);
-//            if let json = self.userMsg.toJSON() {
-//                print(json)
-//            }
-           // let usrMsg = UserMsg(dictionary: self.inputMsgDictify);
+            print(Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation()));
         
-            //print(Util.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
-        
-            //inputMsg.text = Util.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation());//Utils.dictiionaryToJsonString(inputMsgDictify);
+            inputMsg.text = Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation())
+            
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();
             resetFlag = true;
@@ -104,8 +93,6 @@ class ViewController: UIViewController, NetworkManagerDelegate{
                 mentionsArray.append(mention);
             }
             self.userMsg.mentions = mentionsArray;
-            //self.inputMsgDictify["mentions"] = mentions;//mention?modelsFromDictionaryArray
-                //Mention.StringArrayOfMentionsNamefromMessage(msg);
         }
         
         

@@ -20,30 +20,21 @@ struct UserMsg: UserMsgModel,JSONSerializable{
     var emoticons : Array<Emoticon>?
     var links : Array<Link>?
     
-   // internal var dictionary: Dictionary<String,[Any]>?;
-    
-//    internal init?(dictionary: Dictionary<String,[Any]>) {
-//        
-//        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
-//        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
-//        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! Array<Link>) }
-//        self.dictionary = dictionary;
-//    }
-    
-    
-//    internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
-//    {
-//        var models:[UserMsg] = []
-//        for item in array
-//        {
-//            models.append(UserMsg(dictionary: item as! Dictionary<String,[Any]>)!)
-//        }
-//        return models
-//    }
-//    
-//    internal func dictionaryRepresentation() -> Dictionary<String,[Any]> {
-//        return dictionary!;
-//    }
+    func dictionaryRepresentation() -> Dictionary<String,String> {
+
+        let mentions = self.mentions!.map{$0.name}
+        let emoticons = self.emoticons!.map{$0.name}
+        let LinkT = self.links!.map{$0.toJSON()!}
+        
+        var userMsgDict = [String:String]()
+        
+        if (userMsgDict["mentions"] == nil){userMsgDict["mentions"] = "[" + mentions.joinWithSeparator(",") + "]" }
+        if (userMsgDict["emoticons"] == nil){userMsgDict["emoticons"] =  "[" + emoticons.joinWithSeparator(",") + "]" }
+        if (userMsgDict["links"] == nil){userMsgDict["links"] = "[" + LinkT.joinWithSeparator(",") + "]" }
+        
+        return userMsgDict
+        
+    }
     
 }
 

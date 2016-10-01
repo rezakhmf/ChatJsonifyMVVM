@@ -8,60 +8,32 @@
 
 import Foundation
 
-struct UserMsg {
+protocol UserMsgModel: Model {
+    var mentions : Array<Mention>? {get set}
+    var emoticons : Array<Emoticon>? {get set}
+    var links : Array<Link>? {get set}
+}
+
+struct UserMsg: UserMsgModel,JSONSerializable{
     
+    var mentions : Array<Mention>?
+    var emoticons : Array<Emoticon>?
+    var links : Array<Link>?
     
-    internal var mentions : Array<Mention>?
-    internal var emoticons : Array<Emoticon>?
-    internal var links : Array<Link>?
-    
-    internal var dictionary: NSDictionary?;
-    
-    /**
-     Returns an array of models based on given dictionary.
-     
-     Sample usage:
-     let userMsg = UserMsg.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
-     
-     - parameter array:  NSArray from JSON dictionary.
-     
-     - returns: Array of Json4Swift_Base Instances.
-     */
-    internal func modelsFromDictionaryArray(array:NSArray) -> [UserMsg]
-    {
-        var models:[UserMsg] = []
-        for item in array
-        {
-            models.append(UserMsg(dictionary: item as! NSDictionary)!)
-        }
-        return models
-    }
-    
-    /**
-     Constructs the object based on the given dictionary.
-     
-     Sample usage:
-     let yserMsg = UserMsg(someDictionaryFromJSON)
-     
-     - parameter dictionary:  NSDictionary from JSON.
-     
-     */
-     internal init?(dictionary: NSDictionary) {
+    func dictionaryRepresentation() -> Dictionary<String,String> {
+
+        let mentions = self.mentions!.map{$0.name}
+        let emoticons = self.emoticons!.map{$0.name}
+        let LinkT = self.links!.map{$0.toJSON()!}
         
-        if (dictionary["mentions"] != nil) { mentions = (dictionary["mentions"] as! Array<Mention>)}
-        if (dictionary["emoticons"] != nil) { emoticons = (dictionary["emoticons"] as! Array<Emoticon>) }
-        if (dictionary["links"] != nil) { links = Link.modelsFromDictionaryArray(dictionary["links"] as! NSArray) }
-        self.dictionary = dictionary;
-    }
-    
-    
-    /**
-     Returns the dictionary representation for the current instance.
-     
-     - returns: NSDictionary.
-     */
-    internal func dictionaryRepresentation() -> NSDictionary {
-        return dictionary!;
+        var userMsgDict = [String:String]()
+        
+        if (userMsgDict["mentions"] == nil){userMsgDict["mentions"] = "[" + mentions.joinWithSeparator(",") + "]" }
+        if (userMsgDict["emoticons"] == nil){userMsgDict["emoticons"] =  "[" + emoticons.joinWithSeparator(",") + "]" }
+        if (userMsgDict["links"] == nil){userMsgDict["links"] = "[" + LinkT.joinWithSeparator(",") + "]" }
+        
+        return userMsgDict
+        
     }
     
 }

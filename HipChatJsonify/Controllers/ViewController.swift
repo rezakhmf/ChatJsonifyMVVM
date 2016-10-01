@@ -21,17 +21,19 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     let group = dispatch_group_create()
     let queue: dispatch_queue_t = dispatch_queue_create("dispatch.asyncGroup", DISPATCH_QUEUE_CONCURRENT);
     
-    var inputMsgDictify = [String:[AnyObject]]();
+    var inputMsgDictify = Dictionary<String,[Any]>();
     var linkInfo = [String:String]();
     var links = [[String:String]]();
     var semaphore = 0;
     var locked = true;
     var resetFlag = false;
+    var userMsg = UserMsg();
+    var linksArray = Array<Link>();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self;
-        inputMsg.text = "sample input: @john and @puall are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
+        inputMsg.text = "sample input: @reza and @paul are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
     }
     
      func didFailToReceiveResponse() {
@@ -39,21 +41,19 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     }
     
     func didRecievePageTitle(URL URL: String, title: String){
-     
-        linkInfo["url"] = URL;
-        linkInfo["title"] = title;
-        links.append(linkInfo);
         
-        self.inputMsgDictify["links"] = links;
-    
+        let link = Link(url: URL, title: title)
+        linksArray.append(link)
+        
         self.semaphore -= 1;
         if(self.semaphore < 1 && !self.locked) {
             
-            let usrMsg = UserMsg(dictionary: self.inputMsgDictify);
+            self.userMsg.links = linksArray;
+            
+            print(Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation()));
         
-            print(Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation()));
-        
-            inputMsg.text = Utils.dictiionaryToJsonString(usrMsg!.dictionaryRepresentation());//Utils.dictiionaryToJsonString(inputMsgDictify);
+            inputMsg.text = Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation())
+            
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();
             resetFlag = true;
@@ -78,19 +78,33 @@ class ViewController: UIViewController, NetworkManagerDelegate{
 
         
         GCDispatch.asyncGroup(group,queue: queue){
-            let links = Link.StringArrayOfLinksNamefromMessage(msg);
+            //var link = Link(dictionary: <#T##NSDictionary#>);
+            let links = Util.linkMatches(input: msg);
             self.semaphore = links.count;
             links.map{self.manager.getURLContent($0)};
             }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            self.inputMsgDictify["mentions"] = Mention.StringArrayOfMentionsNamefromMessage(msg);
+            let mentions = Util.findByRegex(withRegex: "@(.[^\\s]+)", input: msg)
+            var mentionsArray = Array<Mention>();
+            for i in 0..<mentions.count{
+                let mention = Mention(name: mentions[i]);
+                mentionsArray.append(mention);
+            }
+            self.userMsg.mentions = mentionsArray;
         }
         
         
         GCDispatch.asyncGroup(group,queue: queue){
-            self.inputMsgDictify["emoticons"] = Emoticon.StringArrayOfEmoticonsNamefromMessage(msg);
+            let emoticons = Util.findByRegex(withRegex: "\\((.*?)\\)", input: msg)
+            var emoticonsArray = Array<Emoticon>();
+            for i in 0..<emoticons.count{
+                let emoticon = Emoticon(name: emoticons[i]);
+                emoticonsArray.append(emoticon);
+            }
+            self.userMsg.emoticons = emoticonsArray;
+            //self.inputMsgDictify["emoticons"] = emoticons;
         }
         
         dispatch_group_notify(group, queue) {

@@ -38,11 +38,11 @@ extension Util{
 
 extension Util {
     
-     static func dictiionaryToJsonString(dictionary: Dictionary<String,String>) -> String {
+     static func dictiionaryToJsonString(dictionary: Dictionary<String,AnyObject>) -> String {
         do {
             
-            let dict = dictionary as NSDictionary
-            let data = try NSJSONSerialization.dataWithJSONObject(dict, options:[])
+            
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options:[])
             
             let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
             return dataString as String;
@@ -66,5 +66,36 @@ extension Util {
             return [];
         }
         
+    }
+}
+
+extension Util {
+    static func arrayToJsonString(array: [String]) -> String {
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(array, options:[])
+            
+            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            return dataString as String;
+            
+        } catch {
+            print("JSON serialization failed:  \(error)")
+        }
+        return "";
+    }
+
+}
+
+extension Util {
+    
+    static func dicionaryToNSDictionary(dictionary: Dictionary<String,Any>) -> [String: AnyObject] {
+        
+        var result = [String: AnyObject]();
+        
+        for (key, value) in (dictionary) {
+            if let v = value as? AnyObject {
+                result[key] = v
+            }
+        }
+        return result;
     }
 }

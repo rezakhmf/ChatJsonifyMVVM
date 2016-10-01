@@ -49,11 +49,11 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         if(self.semaphore < 1 && !self.locked) {
             
             self.userMsg.links = linksArray;
+            print(Util.dictiionaryToJsonString( Util.dicionaryToNSDictionary(self.userMsg.dictionaryRepresentation())));
+                
+            inputMsg.text = (Util.dictiionaryToJsonString( Util.dicionaryToNSDictionary(self.userMsg.dictionaryRepresentation())));
             
-            print(Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation()));
-        
-            inputMsg.text = Util.dictiionaryToJsonString(self.userMsg.dictionaryRepresentation())
-            
+          
             digestify.titleLabel?.text = "Reset"
             inputMsgDictify.removeAll();
             resetFlag = true;

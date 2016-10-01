@@ -20,21 +20,26 @@ struct UserMsg: UserMsgModel,JSONSerializable{
     var emoticons : Array<Emoticon>?
     var links : Array<Link>?
     
-    func dictionaryRepresentation() -> Dictionary<String,String> {
-
+    func dictionaryRepresentation() -> Dictionary<String,Any> {
+        
         let mentions = self.mentions!.map{$0.name}
         let emoticons = self.emoticons!.map{$0.name}
         let LinkT = self.links!.map{$0.toJSON()!}
         
-        var userMsgDict = [String:String]()
+        var userMsgDict = [String:Any]()
         
-        if (userMsgDict["mentions"] == nil){userMsgDict["mentions"] = "[" + mentions.joinWithSeparator(",") + "]" }
-        if (userMsgDict["emoticons"] == nil){userMsgDict["emoticons"] =  "[" + emoticons.joinWithSeparator(",") + "]" }
-        if (userMsgDict["links"] == nil){userMsgDict["links"] = "[" + LinkT.joinWithSeparator(",") + "]" }
+        if (userMsgDict["mentions"] == nil){userMsgDict["mentions"] = mentions }
+        if (userMsgDict["emoticons"] == nil){userMsgDict["emoticons"] =  emoticons }
+        if (userMsgDict["links"] == nil){userMsgDict["links"] = LinkT }
         
+        var result = [String: AnyObject]();
+        for (key, value) in (userMsgDict) {
+            if let v = value as? AnyObject {
+                result[key] = v
+            }
+        }
         return userMsgDict
         
     }
-    
 }
 

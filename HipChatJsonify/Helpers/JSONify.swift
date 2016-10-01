@@ -52,3 +52,6 @@ extension JSONSerializable {
         }
     }
 }
+
+extension Dictionary:JSONSerializable{
+}

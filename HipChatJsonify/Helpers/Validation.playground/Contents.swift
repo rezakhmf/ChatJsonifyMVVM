@@ -193,4 +193,10 @@ for i in 0..<4 {
     dispatch_group_leave(group);
     
 }
+
+let array = [ "one", "two" ]
+let data2 = try NSJSONSerialization.dataWithJSONObject(array, options: .PrettyPrinted)
+let string = NSString(data: data2, encoding: NSUTF8StringEncoding)
+print(string);
+
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

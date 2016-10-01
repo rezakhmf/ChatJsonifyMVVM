@@ -82,6 +82,3 @@ public struct Mention: Model, Util1 {
 
     
 }
-
-let men = Mention(name: "hi");
-men?.findByRegex(withRegex: <#T##String#>, input: <#T##String#>)

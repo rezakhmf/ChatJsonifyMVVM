@@ -10,7 +10,7 @@ import UIKit
 
 protocol NetworkManagerDelegate{
      func didFailToReceiveResponse();
-     func didRecievePageTitle(URL URL: String, title: String);
+     func didRecievePageInfo(URL URL: String, title: String);
 }
 
 class NetworkManager: NSObject, NSURLSessionDelegate {
@@ -47,7 +47,7 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
                 
                 let pageTitles = MatchFinder.capturedGroups(withRegex: "<title>(.+?)<\\/title>", input: pageContent);
                 
-                self.delegate!.didRecievePageTitle(URL: url, title: pageTitles[0]);
+                self.delegate!.didRecievePageInfo(URL: url, title: pageTitles[0]);
             }
         });
         

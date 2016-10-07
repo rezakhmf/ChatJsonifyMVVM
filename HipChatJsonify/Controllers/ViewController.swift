@@ -40,7 +40,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
         print("nothing got back");
     }
     
-    func didRecievePageTitle(URL URL: String, title: String){
+    func didRecievePageInfo(URL URL: String, title: String){
         
         let link = Link(url: URL, title: title)
         linksArray.append(link)

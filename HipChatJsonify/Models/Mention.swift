@@ -18,3 +18,10 @@ public struct Mention: EmoticonMentionModel,JSONSerializable {
     }
     
 }
+
+extension Mention: Equatable {}
+
+// MARK: Equatable
+public func ==(lhs: Mention, rhs: Mention) -> Bool {
+    return lhs.name == rhs.name
+}

@@ -14,7 +14,7 @@ protocol UserMsgModel: Model {
     var links : Array<Link>? {get set}
 }
 
-struct UserMsg: UserMsgModel,JSONSerializable{
+public struct UserMsg: UserMsgModel,JSONSerializable{
     
     var mentions : Array<Mention>?
     var emoticons : Array<Emoticon>?
@@ -41,5 +41,15 @@ struct UserMsg: UserMsgModel,JSONSerializable{
         return userMsgDict
         
     }
+    
+}
+
+extension UserMsg: Equatable {}
+
+// MARK: Equatable
+public func ==(lhs: UserMsg, rhs: UserMsg) -> Bool {
+    return lhs.emoticons! == rhs.emoticons! &&
+        lhs.links! == rhs.links! &&
+        lhs.mentions! == rhs.mentions!;
 }
 

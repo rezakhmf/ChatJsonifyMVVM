@@ -42,6 +42,14 @@ extension Link {
     }
 
 }
+
+extension Link: Equatable {}
+
+// MARK: Equatable
+public func ==(lhs: Link, rhs: Link) -> Bool {
+    return lhs.title == rhs.title &&
+           lhs.url == rhs.url
+}
     
 
 

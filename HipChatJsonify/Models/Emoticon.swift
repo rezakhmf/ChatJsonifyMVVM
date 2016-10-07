@@ -17,5 +17,11 @@ public struct Emoticon: EmoticonMentionModel{
     public init(name: String) {
         self.name = name;
     }
-    
+}
+
+extension Emoticon: Equatable {}
+
+// MARK: Equatable
+public func ==(lhs: Emoticon, rhs: Emoticon) -> Bool {
+    return lhs.name == rhs.name
 }

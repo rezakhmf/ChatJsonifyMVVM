@@ -17,11 +17,12 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
     
     var delegate: NetworkManagerDelegate?
     
-    
-    override init() {
-        super.init();
-    }
-    
+    var session: NSURLSession?
+
+         override init() {
+                super.init();
+            }
+
     
     //MARK: — get page content of URL by Delegate class
     
@@ -30,13 +31,13 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
         let secureConfig = NSURLSessionConfiguration.ephemeralSessionConfiguration();
         secureConfig.TLSMinimumSupportedProtocol = SSLProtocol.TLSProtocol1;
         
-        let session = NSURLSession (configuration: secureConfig, delegate: self, delegateQueue: NSOperationQueue.mainQueue());
+        self.session = NSURLSession(configuration: secureConfig, delegate: self, delegateQueue: NSOperationQueue.mainQueue());
         
         let request = NSMutableURLRequest (URL: NSURL( string: url)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 0 )
         
         request.HTTPMethod = "GET";
         
-        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData? ,response: NSURLResponse? ,error: NSError?) in
+        let dataTask = self.session!.dataTaskWithRequest(request, completionHandler: { (data: NSData? ,response: NSURLResponse? ,error: NSError?) in
             
         
             if let responseError = error {
@@ -55,3 +56,17 @@ class NetworkManager: NSObject, NSURLSessionDelegate {
     }
     
 }
+
+// MARK: Class Protocol
+
+typealias DataTaskResult = (NSData?, NSURLResponse?, NSError?) -> Void
+
+protocol URLSessionProtocol {
+    func dataTaskWithURL(url: NSURL, completionHandler: DataTaskResult)
+        -> NSURLSessionDataTask
+}
+
+// MARK: extension NSURLSession
+extension NSURLSession: URLSessionProtocol { }
+
+

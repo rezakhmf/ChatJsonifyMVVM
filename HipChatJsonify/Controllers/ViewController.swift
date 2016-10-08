@@ -16,7 +16,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     @IBOutlet weak var digestify: UIButton!
     
-    let manager  = NetworkManager();
+    let networkManager  = NetworkManager();
     
     let group = dispatch_group_create()
     let queue: dispatch_queue_t = dispatch_queue_create("dispatch.asyncGroup", DISPATCH_QUEUE_CONCURRENT);
@@ -32,8 +32,8 @@ class ViewController: UIViewController, NetworkManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.delegate = self;
-        inputMsg.text = "sample input: @reza and @paul are comming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
+        networkManager.delegate = self;
+        inputMsg.text = "sample input: @reza and @paul are coming in (happy) or (grumpy) on the follwing website http://smh.com.au and  http://news.com.au";
     }
     
      func didFailToReceiveResponse() {
@@ -81,7 +81,7 @@ class ViewController: UIViewController, NetworkManagerDelegate{
             //var link = Link(dictionary: <#T##NSDictionary#>);
             let links = Util.linkMatches(input: msg);
             self.semaphore = links.count;
-            links.map{self.manager.getURLContent($0)};
+            links.map{self.networkManager.getURLContent($0)};
             }
         
         

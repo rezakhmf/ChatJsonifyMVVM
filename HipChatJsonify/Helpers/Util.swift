@@ -42,7 +42,7 @@ extension Util {
         do {
             
             
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options:[])
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
             
             let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)!
             return dataString as String;
